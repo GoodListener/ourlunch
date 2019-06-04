@@ -1,7 +1,9 @@
 <template>
   <div>
     <div>test</div>
-    <Button></Button>
+    <Button class="primary">Primary</Button>
+    <Button class="default">Default</Button>
+    <Button class="disabled">Disabled</Button>
   </div>
 </template>
 
