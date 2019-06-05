@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>test</div>
+    <Title>test</Title>
     <Button class="primary">Primary</Button>
     <Button class="default">Default</Button>
     <Button class="disabled">Disabled</Button>
@@ -9,11 +9,12 @@
 
 <script>
 import Button from '@/components/ui/Button.vue'
+import Title from '@/components/ui/Title.vue'
 
 export default {
   name: 'Test',
   components: {
-    Button
+    Button, Title
   }
 }
 </script>
