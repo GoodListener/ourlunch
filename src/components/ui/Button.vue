@@ -19,15 +19,16 @@ export default {
   margin: 5px;
   padding: 5px 15px;
   width: 200px;
+  height: 40px;
   box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2),
               0px 2px 2px 0px rgba(0,0,0,0.14),
               0px 3px 1px -2px rgba(0,0,0,0.12);
   letter-spacing: 0.028rem;
   box-sizing: border-box;
-  border-radius: 30px;
+  border-radius: 20px;
   outline: none;
   cursor: pointer;
-  border: 2px solid #808385;
+  border: 1px solid #808385;
 }
 
 .base_text {
@@ -35,32 +36,32 @@ export default {
 }
 
 .default {
-  border: 2px solid #329AFC;
+  border: 1px solid #329AFC;
   background-color: #FFF;
   color: #329AFC;
 }
 
 .default:hover {
-  border: 2px solid #5FB0FC;
-  background-color: #EEF;
+  border: 1px solid #5FB0FC;
+  background-color: #FAFAFA;
   color: #5FB0FC;
 }
 
 .primary {
-  border: 2px solid #329AFC;
+  border: 1px solid #329AFC;
   background-color: #329AFC;
   color: #FFF;
 }
 
 .primary:hover {
-  border: 2px solid #5FB0FC;
+  border: 1px solid #5FB0FC;
   background-color: #5FB0FC;
   color: #FFE;
 }
 
 .disabled {
-  border: 2px solid #303030;
-  background-color: #303030;
+  border: 1px solid #BDBDBD;
+  background-color: #BDBDBD;
   color: #FFF;
   cursor: default;
 }

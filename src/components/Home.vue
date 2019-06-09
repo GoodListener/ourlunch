@@ -3,10 +3,10 @@
     <Title>우리의점심</Title>
     <div class="middle">
       <div>
-        <Button class="default">기존 점심팸 참여</Button>
+        <Button class="default">점심팸에 참여하기</Button>
       </div>
       <div>
-        <Button class="primary">점심팸 새로 시작</Button>
+        <Button class="primary">새로운 점심팸 시작</Button>
       </div>
       <div>
         <Button class="disabled">disabled sample</Button>
