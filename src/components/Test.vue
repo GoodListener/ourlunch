@@ -4,8 +4,9 @@
     <SubTitle>부제</SubTitle>
     <Input
       type="text"
-      value="test22"
-      label="good"
+      label="Text Field"
+      :value="inputValue"
+      :change="onchange"
     />
     <Button class="primary">Primary</Button>
     <Button class="default">Default</Button>
@@ -23,6 +24,16 @@ export default {
   name: 'Test',
   components: {
     Button, Title, SubTitle, Input
+  },
+  data () {
+    return {
+      inputValue: 'test'
+    }
+  },
+  methods: {
+    onchange: function (value) {
+      this.inputValue = value
+    }
   }
 }
 </script>
