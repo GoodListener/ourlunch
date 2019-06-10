@@ -7,16 +7,22 @@
 <script>
 export default {
   name: 'App'
+
 }
 </script>
-
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif,'BMDOHYEON';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+  @font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 </style>
