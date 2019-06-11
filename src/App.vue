@@ -12,7 +12,7 @@ export default {
 </script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif,'BMDOHYEON';
+  font-family: 'Avenir', Helvetica, Arial, sans-serif,'BMDOHYEON','BMJUA';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -25,4 +25,11 @@ export default {
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 </style>

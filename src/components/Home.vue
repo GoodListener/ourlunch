@@ -31,8 +31,10 @@ export default {
   h2 {
     margin-bottom: 270px;
   }
-  button.base_button.primary {
-    border-bottom: 80px;
+  .middle {
+    width: 100%;
+    position: fixed;
+    bottom: 50px;
   }
 
 </style>

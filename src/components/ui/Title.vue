@@ -13,5 +13,6 @@ h2 {
   width: 100%;
   font-size: 2rem;
   font-family: 'BMDOHYEON';
+  
 }
 </style>
