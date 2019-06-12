@@ -5,16 +5,14 @@
         <Input
           type="text"
           label="회사명"
-          :value="inputValue"
-          :change="onchange"
+          v-model="companyName"
         />
       </div>
       <div class ="famname">
         <Input
           type="text"
           label="새로운 점심팸 이름"
-          :value="inputValue"
-          :change="onchange"
+          v-model="newFamilyName"
         />
       </div>
 
@@ -34,7 +32,11 @@ export default {
   name: 'StartFamily1',
   components: {
     SubTitle, Input, Button
-  }
+  },
+  data: () => ({
+    companyName: '',
+    newFamilyName: ''
+  })
 }
 </script>
 
