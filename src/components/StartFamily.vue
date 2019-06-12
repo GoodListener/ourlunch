@@ -16,14 +16,12 @@
           :value="inputValue"
           :change="onchange"
         />
-
       </div>
 
       <div class ="buttons">
           <Button class="default">이전</Button>
           <Button class="primary">다음</Button>
       </div>
-
   </div>
 </template>
 
@@ -39,26 +37,28 @@ export default {
   }
 }
 </script>
-<style>
-  h3{
-    font-size:5px;
-    margin-bottom: 80px;
-  }
-  button.base_button.default{
-    width: 20%;
-  }
-  button.base_button.primary{
-    width: 50%;
-  }
 
-  .company{
-    margin-bottom: 50px;
-  }
-  .buttons{
-    width: 100%;
-    position: fixed;
-    bottom: 50px;
-  }
+<style scoped>
+h3 {
+  font-size:5px;
+  margin-bottom: 80px;
+}
 
+button.base_button.default {
+  width: 20%;
+}
 
+button.base_button.primary {
+  width: 50%;
+}
+
+.company {
+  margin-bottom: 50px;
+}
+
+.buttons {
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+}
 </style>

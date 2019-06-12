@@ -5,8 +5,12 @@
     <Input
       type="text"
       label="Text Field"
-      :value="inputValue"
-      :change="onchange"
+      v-model="inputValue"
+    />
+    <Input
+      type="password"
+      label="password"
+      v-model="password"
     />
     <Button class="primary">Primary</Button>
     <Button class="default">Default</Button>
@@ -25,14 +29,13 @@ export default {
   components: {
     Button, Title, SubTitle, Input
   },
-  data () {
-    return {
-      inputValue: 'test'
-    }
-  },
+  data: () => ({
+    inputValue: '',
+    password: ''
+  }),
   methods: {
-    onchange: function (value) {
-      this.inputValue = value
+    onPasswordChange: function (value) {
+      this.password = value
     }
   }
 }
