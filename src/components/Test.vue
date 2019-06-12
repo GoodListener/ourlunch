@@ -4,10 +4,24 @@
     <SubTitle>부제</SubTitle>
     <Input
       type="text"
+      label="text"
+      :value="inputValue"
+      :change="onchange"
+    />
+
+    <Input
+      type="password"
       label="Text Field"
       :value="inputValue"
       :change="onchange"
     />
+    <Input
+      type="checkbox"
+      label="Text Field"
+      :value="inputValue"
+      :change="onchange"
+    />
+
     <Button class="primary">Primary</Button>
     <Button class="default">Default</Button>
     <Button class="disabled">Disabled</Button>

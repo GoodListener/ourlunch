@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SubTitle class ="title">점심팸 새로 시작</SubTitle>
+    <SubTitle class ="title">점심팸 새로 시작 (1/3)</SubTitle>
       <div class = "company">
         <Input
           type="text"
@@ -16,7 +16,6 @@
           :value="inputValue"
           :change="onchange"
         />
-
       </div>
 
       <div class ="buttons">
@@ -33,7 +32,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 
 export default {
-  name: 'StartFamily',
+  name: 'StartFamily1',
   components: {
     SubTitle, Input, Button
   }
