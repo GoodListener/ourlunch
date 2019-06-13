@@ -4,24 +4,14 @@
     <SubTitle>부제</SubTitle>
     <Input
       type="text"
-      label="text"
-      :value="inputValue"
-      :change="onchange"
+      label="Text Field"
+      v-model="inputValue"
     />
-
     <Input
       type="password"
-      label="Text Field"
-      :value="inputValue"
-      :change="onchange"
+      label="Password"
+      v-model="password"
     />
-    <Input
-      type="checkbox"
-      label="Text Field"
-      :value="inputValue"
-      :change="onchange"
-    />
-
     <Button class="primary">Primary</Button>
     <Button class="default">Default</Button>
     <Button class="disabled">Disabled</Button>
@@ -39,14 +29,13 @@ export default {
   components: {
     Button, Title, SubTitle, Input
   },
-  data () {
-    return {
-      inputValue: 'test'
-    }
-  },
+  data: () => ({
+    inputValue: '',
+    password: ''
+  }),
   methods: {
-    onchange: function (value) {
-      this.inputValue = value
+    onPasswordChange: function (value) {
+      this.password = value
     }
   }
 }

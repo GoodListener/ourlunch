@@ -1,13 +1,15 @@
 <template>
   <div :class="type">
-    <label :class="labelText">{{label}}</label>
+    <label :class="labelState" :for="autoGenId">{{label}}</label>
     <input
-    class="base_input"
+    :id="autoGenId"
     :type="type"
+    class="base_input"
+    ref="input"
     :value="value"
+    @input="updateValue($event.target.value)"
     @focus="onfocus"
-    @blur="onfocusout"
-    @change="onchange" />
+    @blur="onfocusout"/>
   </div>
 </template>
 
@@ -15,60 +17,60 @@
 export default {
   beforeMount () {
     if (this.value) {
-      this.labelText = 'focusin'
+      this.labelState = 'focusin'
     }
   },
-  data () {
-    return {
-      labelText: 'focusout'
-    }
-  },
-  props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
-    value: {
-      type: String
-    },
-    label: {
-      type: String,
-      default: 'label'
-    },
-    change: {
-      type: Function
-    }
-  },
+  data: () => ({
+    labelState: 'focusout'
+  }),
+  props: ['type', 'label', 'value'],
   methods: {
     onfocus: function () {
-      this.labelText = 'focusin'
+      this.labelState = 'focusin'
     },
     onfocusout: function () {
       if (this.value) {
-        this.labelText = 'focusin'
+        this.labelState = 'focusin'
       } else {
-        this.labelText = 'focusout'
+        this.labelState = 'focusout'
       }
     },
-    onchange: function (e) {
-      this.change(e.target.value)
+    updateValue: function (inputValue) {
+      this.$emit('input', inputValue)
+    }
+  },
+  computed: {
+    autoGenId: function () {
+      return 'input-id-' + Math.random().toString(36).substr(2, 9)
     }
   }
 }
 </script>
 
 <style scoped>
-div.text {
+div {
   display: inline-flex;
-  height: 1.5rem;
+  min-height: 48px;
+  margin: 4px 0 24px;
+  padding-top: 16px;
+  position: relative;
+  box-sizing: border-box;
+  font-family: inherit;
 }
 
-div.text label {
+div label {
   position: absolute;
   display: flex;
   align-items: flex-start;
   transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,
               transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+input {
+  outline: none;
+  font-size: 1.0rem;
+  border: 0;
+  border-bottom: 1px solid #000;
 }
 
 .focusout {
@@ -78,29 +80,5 @@ div.text label {
 .focusin {
   transform: scale(0.75) translate(-0.5rem, -1.32rem);
   color: gray;
-}
-
-input {
-  border: 0px;
-}
-
-input[type="text"] {
-  outline: none;
-  font-size: 1.0rem;
-  border-bottom: 1px solid #000;
-  z-index: 1;
-  background-color: transparent;
-}
-
-input[type="checkbox"] {
-
-}
-
-input[type="password"] {
-  outline: none;
-  font-size: 1.0rem;
-  border-bottom: 1px solid #000;
-  z-index: 1;
-  background-color: transparent;
 }
 </style>

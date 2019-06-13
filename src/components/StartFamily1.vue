@@ -5,16 +5,14 @@
         <Input
           type="text"
           label="회사명"
-          :value="inputValue"
-          :change="onchange"
+          v-model="companyName"
         />
       </div>
       <div class ="famname">
         <Input
           type="text"
           label="새로운 점심팸 이름"
-          :value="inputValue"
-          :change="onchange"
+          v-model="newFamilyName"
         />
       </div>
 
@@ -22,7 +20,6 @@
           <Button class="default">이전</Button>
           <Button class="primary">다음</Button>
       </div>
-
   </div>
 </template>
 
@@ -35,29 +32,35 @@ export default {
   name: 'StartFamily1',
   components: {
     SubTitle, Input, Button
-  }
+  },
+  data: () => ({
+    companyName: '',
+    newFamilyName: ''
+  })
 }
 </script>
-<style>
-  h3{
-    font-size:5px;
-    margin-bottom: 80px;
-  }
-  button.base_button.default{
-    width: 20%;
-  }
-  button.base_button.primary{
-    width: 50%;
-  }
 
-  .company{
-    margin-bottom: 50px;
-  }
-  .buttons{
-    width: 100%;
-    position: fixed;
-    bottom: 50px;
-  }
+<style scoped>
+h3 {
+  font-size:5px;
+  margin-bottom: 80px;
+}
 
+button.base_button.default {
+  width: 20%;
+}
 
+button.base_button.primary {
+  width: 50%;
+}
+
+.company {
+  margin-bottom: 50px;
+}
+
+.buttons {
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+}
 </style>

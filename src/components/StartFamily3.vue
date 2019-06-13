@@ -5,16 +5,14 @@
         <Input
           type="text"
           label="이름"
-          :value="inputValue"
-          :change="onchange"
+          v-model="userName"
         />
       </div>
       <div class ="taste">
         <Input
           type="text"
           label="나의 입맛은?"
-          :value="inputValue"
-          :change="onchange"
+          v-model="appetite"
         />
       </div>
 
@@ -35,7 +33,11 @@ export default {
   name: 'StartFamily3',
   components: {
     SubTitle, Input, Button
-  }
+  },
+  data: () => ({
+    userName: '',
+    appetite: ''
+  })
 }
 </script>
 <style>
@@ -58,6 +60,4 @@ export default {
     position: fixed;
     bottom: 50px;
   }
-
-
 </style>

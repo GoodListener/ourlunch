@@ -5,24 +5,21 @@
         <Input
           type="text"
           label="ID"
-          :value="inputValue"
-          :change="onchange"
+          v-model="userId"
         />
       </div>
       <div class ="Password1">
         <Input
           type="password"
           label="비밀번호 입력"
-          :value="inputValue"
-          :change="onchange"
+          v-model="userPw"
         />
       </div>
       <div class ="Password2">
         <Input
           type="password"
           label="비밀번호 확인"
-          :value="inputValue"
-          :change="onchange"
+          v-model="checkUserPw"
         />
       </div>
 
@@ -43,7 +40,12 @@ export default {
   name: 'StartFamily2',
   components: {
     SubTitle, Input, Button
-  }
+  },
+  data: () => ({
+    userId: '',
+    userPw: '',
+    checkUserPw: ''
+  })
 }
 </script>
 <style>
@@ -69,6 +71,4 @@ export default {
     position: fixed;
     bottom: 50px;
   }
-
-
 </style>
