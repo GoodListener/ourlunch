@@ -50,7 +50,7 @@ export default {
     width: 50%;
   }
 
-  .company{
+  .nickname{
     margin-bottom: 50px;
   }
   .buttons{
