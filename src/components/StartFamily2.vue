@@ -63,9 +63,7 @@ export default {
   .ID{
     margin-bottom: 70px;
   }
-  .Password1{
-    margin-bottom: 20px;
-  }
+
   .buttons{
     width: 100%;
     position: fixed;

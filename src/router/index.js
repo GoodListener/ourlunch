@@ -5,6 +5,8 @@ import Home from '../components/Home'
 import StartFamily1 from '../components/StartFamily1'
 import StartFamily2 from '../components/StartFamily2'
 import StartFamily3 from '../components/StartFamily3'
+import StartComplete from '../components/StartComplete'
+
 
 Vue.use(Router)
 
@@ -34,6 +36,11 @@ export default new Router({
       path: '/startFamily3',
       name: 'StartFamily3',
       component: StartFamily3
+    },
+    {
+      path: '/startComplete',
+      name: 'StartComplete',
+      component: StartComplete
     }
   ]
 })
