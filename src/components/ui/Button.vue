@@ -1,5 +1,5 @@
 <template>
-  <button class="base_button">
+  <button class="base_button" @click="buttonClick()">
     <span class="base_text">
       <slot>Button</slot>
     </span>
@@ -8,8 +8,11 @@
 
 <script>
 export default {
-  props: {
-
+  props: [],
+  methods: {
+    buttonClick: function () {
+      this.$emit('click')
+    }
   }
 }
 </script>

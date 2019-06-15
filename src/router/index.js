@@ -7,10 +7,10 @@ import StartFamily2 from '../components/StartFamily2'
 import StartFamily3 from '../components/StartFamily3'
 import StartComplete from '../components/StartComplete'
 
-
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -20,7 +20,8 @@ export default new Router({
     {
       path: '/test',
       name: 'Test',
-      component: Test
+      component: Test,
+      props: (route) => ({ query: route.query.q })
     },
     {
       path: '/startFamily1',
