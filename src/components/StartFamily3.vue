@@ -1,24 +1,23 @@
 <template>
   <div>
-    <SubTitle class ="title">점심팸 새로 시작 (3/3)</SubTitle>
-      <div class = "nickname">
+    <SubTitle class="title">점심팸 새로 시작 (3/3)</SubTitle>
+      <div class="nickname">
         <Input
           type="text"
           label="이름"
           v-model="userName"
         />
       </div>
-      <div class ="taste">
+      <div class="taste">
         <Input
           type="text"
           label="나의 입맛은?"
           v-model="appetite"
         />
       </div>
-
-      <div class ="buttons">
-          <Button class="default">이전</Button>
-          <Button class="primary">완료</Button>
+      <div class="buttons">
+          <Button class="default" @click="prevPage()">이전</Button>
+          <Button class="primary" @click="nextPage()">완료</Button>
       </div>
 
   </div>
@@ -37,27 +36,34 @@ export default {
   data: () => ({
     userName: '',
     appetite: ''
-  })
+  }),
+  methods: {
+    prevPage: function () {
+      this.$router.back()
+    },
+    nextPage: function () {
+      this.$router.push('startComplete')
+    }
+  }
 }
 </script>
-<style>
-  h3{
-    font-size:5px;
-    margin-bottom: 80px;
-  }
-  button.base_button.default{
-    width: 20%;
-  }
-  button.base_button.primary{
-    width: 50%;
-  }
+<style scoped>
+.title {
+  margin-bottom: 80px;
+}
+button.base_button.default{
+  width: 20%;
+}
+button.base_button.primary{
+  width: 50%;
+}
 
-  .nickname{
-    margin-bottom: 50px;
-  }
-  .buttons{
-    width: 100%;
-    position: fixed;
-    bottom: 50px;
-  }
+.nickname{
+  margin-bottom: 50px;
+}
+.buttons{
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+}
 </style>

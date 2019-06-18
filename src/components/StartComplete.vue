@@ -23,8 +23,7 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-size:5px;
+.title1 {
   margin-bottom: 80px;
 }
 

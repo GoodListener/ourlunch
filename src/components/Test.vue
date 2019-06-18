@@ -16,7 +16,12 @@
     <Button class="default">Default</Button>
     <Button class="disabled">Disabled</Button>
     <br>
-    <Page><div>{{page}}페이지</div></Page>
+    <Page :page="page">
+      <PageContent page=1>1페이지</PageContent>
+      <PageContent page=2>2페이지</PageContent>
+      <PageContent page=3>3페이지</PageContent>
+      <PageContent page=4>4페이지</PageContent>
+    </Page>
     <Button :class="prevButtonState" @click="prevPage()">Prev</Button>
     <Button :class="nextButtonState" @click="nextPage()">Next</Button>
   </div>
@@ -28,11 +33,12 @@ import Title from '@/components/ui/Title'
 import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
+import PageContent from '@/components/ui/PageContent'
 
 export default {
   name: 'Test',
   components: {
-    Button, Title, SubTitle, Input, Page
+    Button, Title, SubTitle, Input, Page, PageContent
   },
   data: () => ({
     inputValue: '',

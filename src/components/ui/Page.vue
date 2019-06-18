@@ -7,10 +7,7 @@
 
 <script>
 export default {
-  beforeMount: function () {
-    console.log(this.props)
-  },
-  props: ['currentPage', 'page']
+  props: ['page']
 }
 </script>
 
@@ -19,9 +16,7 @@ export default {
   width: 50%;
   height: 300px;
   background-color: #fff;
-  display: flex;
   margin: auto;
-  justify-content: center;
   box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2),
               0px 2px 2px 0px rgba(0,0,0,0.14),
               0px 3px 1px -2px rgba(0,0,0,0.12);

@@ -7,6 +7,7 @@
     class="base_input"
     ref="input"
     :value="value"
+    :required="required"
     @input="updateValue($event.target.value)"
     @focus="onfocus"
     @blur="onfocusout"/>
@@ -23,7 +24,7 @@ export default {
   data: () => ({
     labelState: 'focusout'
   }),
-  props: ['type', 'label', 'value'],
+  props: ['type', 'label', 'value', 'required'],
   methods: {
     onfocus: function () {
       this.labelState = 'focusin'
