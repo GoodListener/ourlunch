@@ -10,6 +10,8 @@ export default {}
 
 <style scoped>
 h3 {
+  font-size:5px;
+  margin-bottom: 80px;
   width: 100%;
   font-size: 1.3rem;
   font-family: 'BMDOHYEON';

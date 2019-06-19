@@ -41,10 +41,6 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-size:5px;
-  margin-bottom: 80px;
-}
 
 button.base_button.default {
   width: 20%;

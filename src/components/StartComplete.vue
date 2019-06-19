@@ -3,7 +3,6 @@
     <SubTitle class ="title1">축하합니다!</SubTitle>
     <SubTitle class ="title2">점심팸 등록 완료!</SubTitle>
 
-
       <div class ="buttons">
           <Button class="primary">우리의점심 시작</Button>
       </div>
@@ -19,17 +18,11 @@ export default {
   name: 'StartComplete',
   components: {
     SubTitle, Input, Button
-  },
+  }
 }
 </script>
 
 <style scoped>
-h3 {
-  font-size:5px;
-  margin-bottom: 80px;
-}
-
-
 
 button.base_button.primary {
   width: 65%;

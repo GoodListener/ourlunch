@@ -1,18 +1,11 @@
 <template>
   <div>
-    <SubTitle class ="title">점심팸 새로 시작 (3/3)</SubTitle>
+    <SubTitle class ="title">점심팸 이름을 입력해주세요</SubTitle>
       <div class = "nickname">
         <Input
           type="text"
-          label="이름"
-          v-model="userName"
-        />
-      </div>
-      <div class ="taste">
-        <Input
-          type="text"
-          label="나의 입맛은?"
-          v-model="appetite"
+          label="점심팸 이름"
+          v-model="famName"
         />
       </div>
 
@@ -30,7 +23,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 
 export default {
-  name: 'StartFamily3',
+  name: 'JoinFam',
   components: {
     SubTitle, Input, Button
   },
