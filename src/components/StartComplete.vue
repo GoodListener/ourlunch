@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+.title1 {
+  margin-bottom: 80px;
+}
 
 button.base_button.primary {
   width: 65%;

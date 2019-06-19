@@ -7,7 +7,7 @@
           <Button class="default">점심팸에 참여하기</Button>
         </div>
         <div>
-          <Button class="primary">새로운 점심 시작</Button>
+          <Button class="primary" @click="startFamily">새로운 점심 시작</Button>
         </div>
       </div>
     </div>
@@ -22,6 +22,11 @@ export default {
   name: 'Test',
   components: {
     Button, Title
+  },
+  methods: {
+    startFamily: function () {
+      this.$router.push('StartFamily1')
+    }
   }
 }
 </script>
