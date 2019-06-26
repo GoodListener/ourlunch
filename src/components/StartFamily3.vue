@@ -17,8 +17,8 @@
       </div>
 
       <div class ="buttons">
-          <Button class="default">이전</Button>
-          <Button class="primary">완료</Button>
+        <Button class="default" @click="prevPage()">이전</Button>
+        <Button class="primary" @click="nextPage()">다음</Button>
       </div>
 
   </div>
@@ -37,7 +37,15 @@ export default {
   data: () => ({
     userName: '',
     appetite: ''
-  })
+  }),
+  methods: {
+  nextPage: function () {
+    this.$router.push('startComplete')
+  },
+  prevPage: function () {
+    this.$router.push('startFamily2')
+  }
+}
 }
 </script>
 <style scoped>

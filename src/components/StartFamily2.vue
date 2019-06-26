@@ -24,8 +24,8 @@
       </div>
 
       <div class ="buttons">
-          <Button class="default">이전</Button>
-          <Button class="primary">다음</Button>
+        <Button class="default" @click="prevPage()">이전</Button>
+        <Button class="primary" @click="nextPage()">다음</Button>
       </div>
 
   </div>
@@ -45,8 +45,17 @@ export default {
     userId: '',
     userPw: '',
     checkUserPw: ''
-  })
+  }),
+  methods: {
+  nextPage: function () {
+    this.$router.push('startFamily3')
+  },
+  prevPage: function () {
+    this.$router.push('startFamily1')
+  }
 }
+}
+
 </script>
 <style scoped>
 

@@ -4,7 +4,7 @@
     <SubTitle class ="title2">점심팸 등록 완료!</SubTitle>
 
       <div class ="buttons">
-          <Button class="primary">우리의점심 시작</Button>
+          <Button class="primary" @click="gotoMain()">우리의점심 시작</Button>
       </div>
   </div>
 </template>
@@ -18,14 +18,16 @@ export default {
   name: 'StartComplete',
   components: {
     SubTitle, Input, Button
+  },
+  methods: {
+  gotoMain: function () {
+    this.$router.push('Main')
   }
+}
 }
 </script>
 
 <style scoped>
-.title1 {
-  margin-bottom: 80px;
-}
 
 button.base_button.primary {
   width: 65%;

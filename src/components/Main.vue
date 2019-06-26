@@ -1,13 +1,10 @@
 <template>
   <div>
-    <Title class="title">우리의점심</Title>
+    <Title class="title">?</Title>
     <div>
-      <div class="middle">
+      <div>
         <div>
-          <Button class="default">점심팸에 참여하기</Button>
-        </div>
-        <div>
-          <Button class="primary" @click="startFamily">새로운 점심 시작</Button>
+          <Button class="primary" @click="choiceLunch">오늘의 점심은?</Button>
         </div>
       </div>
     </div>
@@ -19,13 +16,13 @@ import Button from '@/components/ui/Button'
 import Title from '@/components/ui/Title'
 
 export default {
-  name: 'Home',
+  name: 'Main',
   components: {
     Button, Title
   },
   methods: {
-    startFamily: function () {
-      this.$router.push('StartFamily1')
+    choiceLunch: function () {
+      this.$router.push('choiceLunch1')
     }
   }
 }
