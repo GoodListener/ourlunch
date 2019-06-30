@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Test from '../components/Test'
 import Home from '../components/Home'
+import StartFamily from '../components/StartFamily'
 import StartFamily1 from '../components/StartFamily1'
 import StartFamily2 from '../components/StartFamily2'
 import StartFamily3 from '../components/StartFamily3'
@@ -11,7 +12,6 @@ import Main from '../components/Main'
 import ChoiceLunch1 from '../components/ChoiceLunch1'
 import ChoiceLunch2 from '../components/ChoiceLunch2'
 import ChoiceLunchResult from '../components/ChoiceLunchResult'
-
 
 Vue.use(Router)
 
@@ -26,6 +26,11 @@ export default new Router({
       path: '/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/startFamily',
+      name: 'StartFamily',
+      component: StartFamily
     },
     {
       path: '/startFamily1',

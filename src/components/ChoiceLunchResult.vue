@@ -1,10 +1,10 @@
 <template>
 <div>
   <div>
-    <SubTitle class="title">오늘의 점심은?</SubTitle>
+    <SubTitle class="title">오늘의 점심은?</SubTitle>
   </div>
   <div>
-    <Content class="result">결과</Content>
+    <Content class="result">결과</Content>
   </div>
 
       <div class="buttons">

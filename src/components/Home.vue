@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     startFamily: function () {
-      this.$router.push('StartFamily1')
+      this.$router.push('StartFamily')
     }
   }
 }

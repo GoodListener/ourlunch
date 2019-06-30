@@ -20,10 +20,10 @@ export default {
     SubTitle, Input, Button
   },
   methods: {
-  gotoMain: function () {
-    this.$router.push('Main')
+    gotoMain: function () {
+      this.$router.push('Main')
+    }
   }
-}
 }
 </script>
 

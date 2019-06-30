@@ -47,13 +47,13 @@ export default {
     checkUserPw: ''
   }),
   methods: {
-  nextPage: function () {
-    this.$router.push('startFamily3')
-  },
-  prevPage: function () {
-    this.$router.push('startFamily1')
+    nextPage: function () {
+      this.$router.push('startFamily3')
+    },
+    prevPage: function () {
+      this.$router.push('startFamily1')
+    }
   }
-}
 }
 
 </script>
