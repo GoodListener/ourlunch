@@ -21,7 +21,7 @@
     </div>
     <div>
       <p>{{ message }}</p>
-      <input v-model="message"/>
+      <input v-model="message">
     </div>
   </div>
 </template>
