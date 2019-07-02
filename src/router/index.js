@@ -11,6 +11,8 @@ import Main from '../components/Main'
 import ChoiceLunch1 from '../components/ChoiceLunch1'
 import ChoiceLunch2 from '../components/ChoiceLunch2'
 import ChoiceLunchResult from '../components/ChoiceLunchResult'
+// peace study
+import Study from '../components/Study'
 
 
 Vue.use(Router)
@@ -26,6 +28,11 @@ export default new Router({
       path: '/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/study',
+      name: 'Study',
+      component: Study
     },
     {
       path: '/startFamily1',
