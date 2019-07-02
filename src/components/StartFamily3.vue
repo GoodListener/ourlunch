@@ -39,13 +39,13 @@ export default {
     appetite: ''
   }),
   methods: {
-  nextPage: function () {
-    this.$router.push('startComplete')
-  },
-  prevPage: function () {
-    this.$router.push('startFamily2')
+    nextPage: function () {
+      this.$router.push('startComplete')
+    },
+    prevPage: function () {
+      this.$router.push('startFamily2')
+    }
   }
-}
 }
 </script>
 <style scoped>

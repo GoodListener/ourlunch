@@ -1,7 +1,7 @@
 <template>
 <div>
     <div>
-      <SubTitle class="title">오늘의 식당 후보는?</SubTitle>
+      <SubTitle class="title">오늘의 식당 후보는?</SubTitle>
     </div>
 
     <div class="buttons">
