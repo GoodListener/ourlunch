@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     gotoMain: function () {
-      this.$router.push('Main')
+      this.$router.push('main')
     }
   }
 }

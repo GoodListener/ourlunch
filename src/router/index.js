@@ -9,6 +9,8 @@ import Main from '../components/Main'
 import ChoiceLunch1 from '../components/ChoiceLunch1'
 import ChoiceLunch2 from '../components/ChoiceLunch2'
 import ChoiceLunchResult from '../components/ChoiceLunchResult'
+import Restaurant from '../components/Restaurant'
+
 // peace study
 import Study from '../components/Study'
 
@@ -65,6 +67,12 @@ export default new Router({
       path: '/choiceLunchResult',
       name: 'ChoiceLunchResult',
       component: ChoiceLunchResult
-    }
+    },
+    {
+      path: '/restaurant',
+      name: 'Restaurant',
+      component: Restaurant
+    },
+
   ]
 })

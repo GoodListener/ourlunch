@@ -3,7 +3,7 @@
     <Title class="title">?</Title>
     <div>
         <div>
-          <TextButton class="basic" @click="choiceLunch"><img class="btnimg" src="https://image.flaticon.com/icons/png/512/61/61733.png" max-width:10px> 식당 등록하기</TextButton>
+          <TextButton class="basic" @click="handleRestaurantButton"><img class="btnimg" src="https://image.flaticon.com/icons/png/512/61/61733.png" max-width:10px> 식당 등록하기</TextButton>
         </div>
         <!-- 이미지 이렇게 넣는거 아닌것 같은데..넘나어렵다 -->
         <div>
@@ -26,6 +26,9 @@ export default {
   methods: {
     choiceLunch: function () {
       this.$router.push('choiceLunch1')
+    },
+    handleRestaurantButton: function () {
+      this.$router.push('restaurant')
     }
   }
 }
