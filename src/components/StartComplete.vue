@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SubTitle class ="title1">축하합니다!</SubTitle>
+    <SubTitle class ="title1">축하합니다! {{userName}}님</SubTitle>
     <SubTitle class ="title2">점심팸 등록 완료!</SubTitle>
 
       <div class ="buttons">
@@ -13,9 +13,16 @@
 import Button from '@/components/ui/Button'
 import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
+import famData from '@/data/family'
 
 export default {
   name: 'StartComplete',
+  data: () => ({
+    userName : famData.fam.userName
+  }),
+  mounted: () => {
+    console.log(famData)
+  },
   components: {
     SubTitle, Input, Button
   },

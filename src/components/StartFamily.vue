@@ -7,7 +7,7 @@
             <Input
               type="text"
               label="회사명"
-              v-model="companyName"
+              v-model="family.companyName"
               required
             />
           </div>
@@ -15,7 +15,7 @@
             <Input
               type="text"
               label="새로운 점심팸 이름"
-              v-model="newFamilyName"
+              v-model="family.newFamilyName"
             />
           </div>
         </PageContent>
@@ -24,21 +24,21 @@
             <Input
               type="text"
               label="ID"
-              v-model="userId"
+              v-model="family.userId"
             />
           </div>
           <div class ="Password1">
             <Input
               type="password"
               label="비밀번호 입력"
-              v-model="userPw"
+              v-model="family.userPw"
             />
           </div>
           <div class ="Password2">
             <Input
               type="password"
               label="비밀번호 확인"
-              v-model="checkUserPw"
+              v-model="family.checkUserPw"
             />
           </div>
         </PageContent>
@@ -47,14 +47,14 @@
             <Input
               type="text"
               label="이름"
-              v-model="userName"
+              v-model="family.userName"
             />
           </div>
           <div class ="taste">
             <Input
               type="text"
               label="나의 입맛은?"
-              v-model="appetite"
+              v-model="family.appetite"
             />
           </div>
         </PageContent>
@@ -72,6 +72,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
+import famData from '@/data/family'
 
 export default {
   name: 'StartFamily1',
@@ -79,8 +80,15 @@ export default {
     SubTitle, Input, Button, Page, PageContent
   },
   data: () => ({
-    companyName: '',
-    newFamilyName: ''
+    family: {
+      companyName: '',
+      newFamilyName: '',
+      userId: '',
+      userPw: '',
+      checkUserPw: '',
+      userName: '',
+      appetite: ''
+    }
   }),
   methods: {
     prevPage: function () {
@@ -94,6 +102,7 @@ export default {
       if (this.page < 3) {
         this.$router.push('?page=' + (this.page + 1))
       } else {
+        famData.fam = this.family
         this.$router.push('startComplete')
       }
     }
@@ -105,12 +114,6 @@ export default {
       } else {
         return 1
       }
-    },
-    prevButtonState: function () {
-      return this.page === 1 ? 'disabled' : 'default'
-    },
-    nextButtonState: function () {
-      return 'primary'
     }
   }
 }
