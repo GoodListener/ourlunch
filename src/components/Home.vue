@@ -3,11 +3,11 @@
     <Title class="title">우리의점심</Title>
     <div>
       <div class="middle">
-        <div>
+        <!-- <div>
           <Button class="default">점심팸에 참여하기</Button>
-        </div>
+        </div> -->
         <div>
-          <Button class="primary" @click="startFamily">새로운 점심 시작</Button>
+          <Button class="primary" @click="startFamily1">새로운 점심 시작</Button>
         </div>
       </div>
     </div>
@@ -24,8 +24,8 @@ export default {
     Button, Title
   },
   methods: {
-    startFamily: function () {
-      this.$router.push('StartFamily')
+    startFamily1: function () {
+      this.$router.push('StartFamily1')
     }
   }
 }
