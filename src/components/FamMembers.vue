@@ -1,5 +1,5 @@
 <template>
-<div id="todo-list-example">
+<div>
   <ul>
     <li v-for=" famMembers in famMembers">
     {{ famMembers }}
@@ -17,33 +17,23 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-// import testUser from '@/data/studydata'
+import famMember from '@/data/famMember'
 
 export default {
   props: ['title'],
   data: () => ({
-    userIndex : testUser.study.index,
-    userName : testUser.study.myName,
-    famMembers : testUser.study.famMembers
+    famMembers : famMember.member.famMembers1
   }),
   mounted: () => {
     console.log(index),
     console.log(myName),
     console.log(famMembers)
   },
- name: 'Study',
+ name: 'FamMembers',
  components: {
    Button, Title, SubTitle, Input, Page, PageContent
- },
- methods: {
-   addNewTodo: function () {
-     this.todos.push({
-       id: this.nextTodoId++,
-       title: this.newTodoText
-     })
-     this.newTodoText = ''
-   }
- },
+ }
+
  // computed: {
  //    page: function () {
  //      if (this.$route.query && this.$route.query.page) {
