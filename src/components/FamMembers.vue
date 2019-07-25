@@ -1,10 +1,17 @@
 <template>
 <div>
-  <ul>
-    <li v-for=" famMembers in famMembers">
-    {{ famMembers }}
+  <ul >
+    <li class="list" v-for=" famMember in famMembers" >
+      <span class="memberName">
+        {{ famMember.memberName }}
+      </span>
+      <span class="appetite">
+        {{ famMember.appetite }} </br>
+      </span>
+      <div class="restaurant">
+        미평가 식당: {{ famMember.restaurant }}개
+      </div>
     </li>
-
   </ul>
 </div>
 </template>
@@ -26,7 +33,6 @@ export default {
   }),
   mounted: () => {
     console.log(index),
-    console.log(myName),
     console.log(famMembers)
   },
  name: 'FamMembers',
@@ -51,3 +57,23 @@ export default {
  //  }
 }
 </script>
+<style scoped>
+  li.list{
+  list-style: none;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border: 1px
+  solid #DCDCDC;
+  background-color : white;
+},
+.memberName{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+},
+.appetite{
+  font-size: 15px;
+  font-weight: normal;
+}
+</style>

@@ -1,5 +1,14 @@
 {
-  "index" : "1",
-  "myName": "한평화",
-  "famMembers1": ["한피쓰","유캐리","김상준","방일본","권티오"]
+  "famMembers1": [
+    {
+      "memberName": "한평화",
+      "appetite": "초딩입맛",
+      "restaurant": "3"
+    },
+    {
+      "memberName": "권혁재",
+      "appetite": "중딩입맛",
+      "restaurant": "6"
+    }
+  ]
 }
