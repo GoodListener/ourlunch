@@ -10,7 +10,8 @@
     :required="required"
     @input="updateValue($event.target.value)"
     @focus="onfocus"
-    @blur="onfocusout"/>
+    @blur="onfocusout"
+    @keyup="onkeyup"/>
   </div>
 </template>
 
@@ -35,6 +36,9 @@ export default {
       } else {
         this.labelState = 'focusout'
       }
+    },
+    onkeyup: function (e) {
+      this.$emit('keyup', e)
     },
     updateValue: function (inputValue) {
       this.$emit('input', inputValue)

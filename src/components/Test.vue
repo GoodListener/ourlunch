@@ -42,6 +42,9 @@ export default {
   components: {
     Button, Title, SubTitle, Input, Page, PageContent, TextButton
   },
+  mounted: () => {
+
+  },
   data: () => ({
     inputValue: '',
     password: ''
