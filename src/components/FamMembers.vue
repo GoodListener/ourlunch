@@ -1,8 +1,16 @@
 <template>
-<div id="todo-list-example">
-  <ul>
-    <li v-for=" famMembers in famMembers">
-    {{ famMembers }}
+<div>
+  <ul >
+    <li class="list" v-for=" famMember in famMembers" >
+      <span class="memberName">
+        {{ famMember.memberName }}
+      </span>
+      <span class="appetite">
+        {{ famMember.appetite }} </br>
+      </span>
+      <div class="restaurant">
+        미평가 식당: {{ famMember.restaurant }}개
+      </div>
     </li>
   </ul>
 </div>
@@ -16,33 +24,22 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-// import testUser from '@/data/studydata'
+import famMember from '@/data/famMember'
 
 export default {
   props: ['title'],
   data: () => ({
-    userIndex : testUser.study.index,
-    userName : testUser.study.myName,
-    famMembers : testUser.study.famMembers
+    famMembers : famMember.member.famMembers1
   }),
   mounted: () => {
     console.log(index),
-    console.log(myName),
     console.log(famMembers)
   },
- name: 'Study',
+ name: 'FamMembers',
  components: {
    Button, Title, SubTitle, Input, Page, PageContent
- },
- methods: {
-   addNewTodo: function () {
-     this.todos.push({
-       id: this.nextTodoId++,
-       title: this.newTodoText
-     })
-     this.newTodoText = ''
-   }
- },
+ }
+
  // computed: {
  //    page: function () {
  //      if (this.$route.query && this.$route.query.page) {
@@ -60,3 +57,23 @@ export default {
  //  }
 }
 </script>
+<style scoped>
+  li.list{
+  list-style: none;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border: 1px
+  solid #DCDCDC;
+  background-color : white;
+},
+.memberName{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+},
+.appetite{
+  font-size: 15px;
+  font-weight: normal;
+}
+</style>

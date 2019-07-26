@@ -1,3 +1,5 @@
+<!-- 협의결과 점심팸 이름으로 가입하는 방법은 일단 제외하고 URL로만 가입하도록 함 -->
+
 <template>
   <div>
     <SubTitle class ="title">점심팸 이름을 입력해주세요</SubTitle>
