@@ -4,7 +4,6 @@
     <li v-for=" famMembers in famMembers">
     {{ famMembers }}
     </li>
-
   </ul>
 </div>
 </template>

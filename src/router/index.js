@@ -79,6 +79,5 @@ export default new Router({
       name: 'FamMembers',
       component: FamMembers
     }
-
   ]
 })

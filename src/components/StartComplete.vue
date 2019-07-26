@@ -18,7 +18,7 @@ import famData from '@/data/family'
 export default {
   name: 'StartComplete',
   data: () => ({
-    userName : famData.fam.userName
+    userName: famData.fam.userName
   }),
   mounted: () => {
     console.log(famData)
