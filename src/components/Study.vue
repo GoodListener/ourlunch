@@ -14,7 +14,7 @@
 <!-- 스터디 -->
     <div id="app-4">
       <ol>
-        <li v-for="todo in todos">
+        <li v-for="todo in todos" v-bind:key="todo">
           {{ todo.text }}
         </li>
       </ol>
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-
 
 import Button from '@/components/ui/Button'
 import Title from '@/components/ui/Title'

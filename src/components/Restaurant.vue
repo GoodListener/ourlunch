@@ -16,7 +16,7 @@ export default {
   name: 'Restaurant',
   components: {
     Title, Input, Icon
-  },
+  }
 }
 
 </script>

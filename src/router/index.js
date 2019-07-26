@@ -72,7 +72,6 @@ export default new Router({
       path: '/restaurant',
       name: 'Restaurant',
       component: Restaurant
-    },
-
+    }
   ]
 })
