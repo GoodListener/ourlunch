@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ul >
+  <ul>
     <li class="list" v-for=" famMember in famMembers" v-bind:key="famMember">
       <span class="memberName">
         {{ famMember.memberName }}

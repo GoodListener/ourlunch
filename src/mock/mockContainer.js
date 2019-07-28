@@ -1,4 +1,5 @@
 import MockAdapter from 'axios-mock-adapter'
+import restaurantList from '@/data/fakeRestaurantApiData.json'
 
 export class MockContainer {
   constructor (axios) {
@@ -6,6 +7,6 @@ export class MockContainer {
   }
 
   init () {
-    this.mock.onGet('/restaurant').reply(200, {name: 'test', place: 'good'})
+    this.mock.onGet('/api/restaurant').reply(200, restaurantList)
   }
 }
