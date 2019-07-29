@@ -2,7 +2,7 @@
 <div id="todo-list-example">
   <ul>
     <li v-for="(famMember, index) in famMembers" v-bind:key="index">
-    {{ famMember.name }}
+    {{ famMember.memberName }}
     </li>
   </ul>
 </div>
@@ -16,14 +16,15 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
+import { getMembers } from '../api/index.js'
 
 export default {
   props: ['title'],
   data: () => ({
     famMembers: []
   }),
-  mounted () {
-    this.$http.get('https://jsonplaceholder.typicode.com/users/')
+  created () {
+    getMembers()
       .then((response) => {
         console.log(response.data)
         this.famMembers = response.data

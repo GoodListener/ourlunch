@@ -7,7 +7,6 @@ import axios from 'axios'
 import { MockContainer } from './mock/mockContainer'
 
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
 
 if (process.env.NODE_ENV === 'development') {
   new MockContainer(axios).init()
