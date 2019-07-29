@@ -3,9 +3,8 @@
     <Title class="title">?</Title>
     <div>
         <div>
-          <TextButton class="basic" @click="handleRestaurantButton"><img class="btnimg" src="https://image.flaticon.com/icons/png/512/61/61733.png" max-width:10px> 식당 등록하기</TextButton>
+          <TextButton class="basic" @click="handleRestaurantButton"><i class="fas fa-plus-circle plus-icon"></i> 식당 등록하기</TextButton>
         </div>
-        <!-- 이미지 이렇게 넣는거 아닌것 같은데..넘나어렵다 -->
         <div>
           <Button class="primary" @click="choiceLunch">오늘의 점심은?</Button>
         </div>
@@ -45,8 +44,7 @@ export default {
   bottom: 50px;
 }
 
-.btnimg {
-  width: 15px;
-  float: bottom;
+.plus-icon {
+  color: #535353;
 }
 </style>
