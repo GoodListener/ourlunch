@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import { MockContainer } from './mock/mockContainer'
+import { store } from './store/store.js'
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === 'development') {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
