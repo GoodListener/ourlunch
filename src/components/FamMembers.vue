@@ -1,18 +1,31 @@
 <template>
 <div>
-  <ul>
-    <li class="list" v-for=" famMember in famMembers" v-bind:key="famMember">
-      <span class="memberName">
-        {{ famMember.memberName }}
-      </span>
-      <span class="appetite">
-        {{ famMember.appetite }}<br>
-      </span>
-      <div class="restaurant">
-        미평가 식당: {{ famMember.restaurant }}개
-      </div>
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li class="list" v-for=" famMember in famMembers" v-bind:key="famMember">
+        <div>
+          <div class="left">
+            <span class="memberName">
+              {{ famMember.memberName }}
+            </span>
+            <span class="appetite">
+              {{ famMember.appetite }}<br>
+            </span>
+            <span class="restaurant">
+              미평가 식당: {{ famMember.restaurant }}개
+            </span>
+          </div>
+          <div class="right">
+            <Button class="mini_default">식당 평가</Button>
+            <Button class="mini_default">삭제</Button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class ="buttons">
+      <Button class="default">닫기</Button>
+  </div>
 </div>
 </template>
 
@@ -32,40 +45,38 @@ export default {
     famMembers: famMember.member.famMembers1
   }),
   mounted: () => {
-    // console.log(index)
     console.log(famMember.member.famMembers1)
   },
   name: 'FamMembers',
   components: {
     Button, Title, SubTitle, Input, Page, PageContent
   }
-  // computed: {
-  //   page: function () {
-  //     if (this.$route.query && this.$route.query.page) {
-  //       return parseInt(this.$route.query.page)
-  //     } else {
-  //       return 1
-  //     }
-  //   },
-  //   prevButtonState: function () {
-  //     return this.page === 1 ? 'disabled' : 'default'
-  //   },
-  //   nextButtonState: function () {
-  //     return 'primary'
-  //   }
-  // }
 }
 </script>
 <style scoped>
+
+ul{
+  padding-left: 5px;
+}
 li.list{
   list-style: none;
   margin-bottom: 5px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   border: 1px
   solid #DCDCDC;
   background-color : white;
+  text-align: left;
 }
+/* .left{
+  float: left;
+  width: 50%;
+}
+.right{
+  float: left;
+  width: 50%;
+} */
 .memberName{
   font-size: 20px;
   font-weight: bold;
@@ -74,5 +85,16 @@ li.list{
 .appetite{
   font-size: 15px;
   font-weight: normal;
+}
+.restaurant{
+  text-align: left;
+}
+button.base_button.default{
+  width: 50%;
+}
+.buttons{
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
 }
 </style>
