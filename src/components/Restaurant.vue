@@ -17,6 +17,7 @@
 import Title from '@/components/ui/Title'
 import Input from '@/components/ui/Input'
 import Icon from '@/components/ui/Icon'
+import { getRestaurants } from '../api/index.js'
 
 export default {
   name: 'Restaurant',
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
     searchRestaurant: function () {
-      this.$http.get('/api/restaurant', {
+      getRestaurants({
         query: this.restaurantName
       })
         .then(response => {
