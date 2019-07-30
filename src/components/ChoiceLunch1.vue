@@ -1,12 +1,12 @@
 <template>
   <div>
-  <div>
-    <SubTitle class="title">오늘의 점심 멤버는?</SubTitle>
-  </div>
-      <div class="buttons">
-          <Button class="default" @click="prevPage()">이전</Button>
-          <Button class="primary" @click="nextPage()">다음</Button>
-      </div>
+    <div>
+      <SubTitle class="title">오늘의 점심 멤버는?</SubTitle>
+    </div>
+    <div class="buttons">
+        <Button class="default" @click="prevPage()">이전</Button>
+        <Button class="primary" @click="nextPage()">다음</Button>
+    </div>
   </div>
 </template>
 

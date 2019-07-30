@@ -1,30 +1,29 @@
 <template>
-<div>
-  <div>
-    <ul>
-      <li class="list" v-for=" famMember in famMembers" v-bind:key="famMember">
-        <div>
-          <div class="left">
-            <span class="memberName">
-              {{ famMember.memberName }}
-            </span>
-            <span class="appetite">
-              {{ famMember.appetite }}<br>
-            </span>
-            <span class="restaurant">
-              미평가 식당: {{ famMember.restaurant }}개
-            </span>
-          </div>
-          <div class="right">
-            <Button class="mini_default">식당 평가</Button>
-            <Button class="mini_default">삭제</Button>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class ="buttons">
-      <Button class="default">닫기</Button>
+<div class="famMember_wrapper">
+  <h3>명단</h3>
+  <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 초대링크 복사</TextButton>
+  <ul>
+    <li class="list" v-for="(famMember, index) in famMembers" v-bind:key="index">
+      <div class="left">
+        <span class="memberName">
+          {{ famMember.memberName }}
+        </span>
+        <span class="appetite">
+          {{ famMember.appetite }}
+        </span>
+        <br>
+        <small class="restaurant">
+          미평가 식당: {{ famMember.restaurant }}개
+        </small>
+      </div>
+      <div class="right">
+        <Button class="mini default">식당 평가</Button>
+        <Button class="mini default">삭제</Button>
+      </div>
+    </li>
+  </ul>
+  <div class="buttons">
+      <Button class="default close_btn">닫기</Button>
   </div>
 </div>
 </template>
@@ -32,6 +31,7 @@
 <script>
 
 import Button from '@/components/ui/Button'
+import TextButton from '@/components/ui/TextButton'
 import Title from '@/components/ui/Title'
 import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
@@ -49,34 +49,42 @@ export default {
   },
   name: 'FamMembers',
   components: {
-    Button, Title, SubTitle, Input, Page, PageContent
+    Button, TextButton, Title, SubTitle, Input, Page, PageContent
   }
 }
 </script>
 <style scoped>
-
+.famMember_wrapper{
+  float: left;
+  margin: 0px 20px;
+}
+h3{
+  float: left;
+}
+.copy_btn{
+  float: right;
+  width: auto;
+}
 ul{
-  padding-left: 5px;
+  padding: 0;
 }
 li.list{
   list-style: none;
-  margin-bottom: 5px;
-  padding-left: 20px;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  border: 1px
-  solid #DCDCDC;
-  background-color : white;
+  margin: 5px auto;
+  padding: 20px 15px;
+  border: 1px solid #DCDCDC;
+  background-color : #fdfdfd;
   text-align: left;
-}
-/* .left{
   float: left;
-  width: 50%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.left{
+  float: left;
 }
 .right{
-  float: left;
-  width: 50%;
-} */
+  float: right;
+}
 .memberName{
   font-size: 20px;
   font-weight: bold;
@@ -85,11 +93,13 @@ li.list{
 .appetite{
   font-size: 15px;
   font-weight: normal;
+  color: #959595;
 }
 .restaurant{
   text-align: left;
+  color: #959595;
 }
-button.base_button.default{
+button.close_btn{
   width: 50%;
 }
 .buttons{

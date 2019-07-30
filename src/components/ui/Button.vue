@@ -32,36 +32,18 @@ export default {
   outline: none;
   cursor: pointer;
   border: 1px solid #808385;
+  transition: all 0.3s;
 }
 
 .base_text {
   font-size: 0.875rem;
 }
-.mini_default {
-  margin: 5px;
-  padding: 5px 15px;
+
+.mini {
   width: auto;
   height: 30px;
-  font-size: 0.475rem;
-  border: 1px solid #329AFC;
-  background-color: #FFF;
-  color: #329AFC;
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0),
-              0px 0px 0px 0px rgba(0,0,0,0),
-              0px 0px 0px 0px rgba(0,0,0,0);
 }
-.mini_default:hover {
-  margin: 5px;
-  padding: 5px 15px;
-  width: auto;
-  height: 30px;
-  border: 1px solid #5FB0FC;
-  background-color: #FAFAFA;
-  color: #5FB0FC;
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0),
-              0px 0px 0px 0px rgba(0,0,0,0),
-              0px 0px 0px 0px rgba(0,0,0,0);
-}
+
 .default {
   border: 1px solid #329AFC;
   background-color: #FFF;
