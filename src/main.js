@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import { MockContainer } from './mock/mockContainer'
-import { store } from './store/store.js'
+import { store } from './store/index.js'
 
 Vue.config.productionTip = false
 
