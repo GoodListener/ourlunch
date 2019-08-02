@@ -8,7 +8,10 @@
     </div>
     <div class="restaurant_list">
       <li class="list" v-for=" restaurant in restaurants" v-bind:key="restaurant.key">
-        <div>{{ restaurant.name }}</div>
+        <div>
+          <p>{{ restaurant.place_name }}</p>
+          <p>{{ restaurant.address_name}}</p>
+        </div>
       </li>
     </div>
   </div>
@@ -30,7 +33,7 @@ export default {
         query: this.restaurantName
       })
         .then(response => {
-          this.restaurants = response.data
+          this.restaurants = response.data.documents
         })
     }
   },

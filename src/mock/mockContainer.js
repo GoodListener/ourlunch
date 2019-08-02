@@ -4,7 +4,10 @@ import memberList from '@/data/fakeMemberApiData.json'
 
 export class MockContainer {
   constructor (axios) {
-    this.mock = new MockAdapter(axios)
+    if (process.env.NODE_ENV === 'development') {
+      const mockAxios = axios.create()
+      this.mock = new MockContainer(mockAxios)
+    }
   }
 
   init () {
