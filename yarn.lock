@@ -5256,6 +5256,18 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+load-script-once@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/load-script-once/-/load-script-once-2.0.1.tgz#9aee85db9817452501106bfefd086090c43af0dc"
+  integrity sha512-kiOI7KEUqjbbFNmau4xZ1ZFDA7HjeYvtE91V68jJ/rcvNXnT2GLfz5Wz8geCu3Ug5kwMYZf4eHxsG5/c+sQP1Q==
+  dependencies:
+    load-script "~1.0.0"
+
+load-script@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
+
 loader-fs-cache@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.2.tgz#54cedf6b727e1779fd8f01205f05f6e88706f086"
