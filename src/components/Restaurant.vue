@@ -18,7 +18,9 @@
         </div>
       </PageContent>
       <PageContent content-no="restaurantMap">
-        <div>map 표시 페이지{{map}}</div>
+        <div>map 표시 페이지
+          <KakaoMap :place="place"></KaKaoMap>
+        </div>
       </PageContent>
       <PageContent content-no="pickRestaurant">
         <div>식당 종류 표시 페이지</div>
@@ -53,39 +55,23 @@ export default {
         })
     },
     selectRestaurant: function (target) {
-      this.targetRestaurant = target
+      console.log(target)
+      this.place = target
       this.$router.push('?content=restaurantMap')
-      this.content = 'restaurantMap'
-      this.map = <KakaoMap/>
     }
   },
   data: () => ({
     restaurantName: '',
     restaurants: [],
-    targetRestaurant: {},
-    map: {}
+    place: {lat: 127, lng: 39},
+    secondPageName: 'searchRestaurant'
   }),
   computed: {
     content: function () {
       if (this.$route.query && this.$route.query.content) {
         return this.$route.query.content
       } else {
-        return 'searchRestaurant'
-      }
-    },
-    lng: function () {
-      console.log(this.targetRestaurant)
-      if (this.targetRestaurant.x) {
-        return this.targetRestaurant.x
-      } else {
-        return 126.986926039839
-      }
-    },
-    lat: function () {
-      if (this.targetRestaurant.y) {
-        return this.targetRestaurant.y
-      } else {
-        return 37.5931837897012
+        return this.secondPageName
       }
     }
   }
