@@ -18,7 +18,7 @@
         </div>
       </PageContent>
       <PageContent content-no="restaurantMap">
-        <div>map 표시 페이지<div id="restaurantMap"></div></div>
+        <div>map 표시 페이지{{map}}</div>
       </PageContent>
       <PageContent content-no="pickRestaurant">
         <div>식당 종류 표시 페이지</div>
@@ -33,12 +33,12 @@ import Icon from '@/components/ui/Icon'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
 import { getRestaurants } from '../api/index.js'
-import loadScriptOnce from 'load-script-once'
+import KakaoMap from '@/components/KakaoMap'
 
 export default {
   name: 'Restaurant',
   components: {
-    Title, Input, Icon, Page, PageContent
+    Title, Input, Icon, Page, PageContent, KakaoMap
   },
   mounted: () => {
     console.log('mounted')
@@ -56,18 +56,7 @@ export default {
       this.targetRestaurant = target
       this.$router.push('?content=restaurantMap')
       this.content = 'restaurantMap'
-      loadScriptOnce('https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=9371d0a85e46655cd886905c0cab174c')
-        .then(() => {
-          kakao.maps.load(() => {
-            this.map = new kakao.maps.Map(document.getElementById('restaurantMap'), {
-              center: new kakao.maps.LatLng(this.targetRestaurant.y, this.targetRestaurant.x),
-              level: 1
-            })
-          })
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+      this.map = <KakaoMap/>
     }
   },
   data: () => ({
@@ -82,6 +71,21 @@ export default {
         return this.$route.query.content
       } else {
         return 'searchRestaurant'
+      }
+    },
+    lng: function () {
+      console.log(this.targetRestaurant)
+      if (this.targetRestaurant.x) {
+        return this.targetRestaurant.x
+      } else {
+        return 126.986926039839
+      }
+    },
+    lat: function () {
+      if (this.targetRestaurant.y) {
+        return this.targetRestaurant.y
+      } else {
+        return 37.5931837897012
       }
     }
   }
@@ -98,10 +102,5 @@ li.list{
   border: 1px
   solid #DCDCDC;
   background-color : white;
-}
-
-#restaurantMap {
-  width: 500px;
-  height: 500px;
 }
 </style>
