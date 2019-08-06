@@ -1,7 +1,9 @@
 <template>
 <div class="famMember_wrapper">
-  <h3>명단</h3>
-  <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 초대링크 복사</TextButton>
+  <div class="topFixArea">
+    <h3>명단</h3>
+    <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 초대링크 복사</TextButton>
+  </div>
   <ul>
     <li class="list" v-for="(famMember, index) in famMembers" v-bind:key="index">
       <div class="left">
@@ -18,7 +20,7 @@
       </div>
       <div class="right">
         <Button class="mini default">식당 평가</Button>
-        <Button class="mini default">삭제</Button>
+        <Button class="mini default gray_btn">삭제</Button>
       </div>
     </li>
   </ul>
@@ -57,6 +59,12 @@ export default {
 .famMember_wrapper{
   float: left;
   margin: 0px 20px;
+}
+.topFixArea{
+  position: fixed;
+  top: 0px;
+  background-color: white;
+  width:100%;
 }
 h3{
   float: left;
