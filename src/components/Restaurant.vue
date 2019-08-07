@@ -42,9 +42,6 @@ export default {
   components: {
     Title, Input, Icon, Page, PageContent, KakaoMap
   },
-  mounted: () => {
-    console.log('mounted')
-  },
   methods: {
     searchRestaurant: function () {
       getRestaurants({
@@ -55,7 +52,6 @@ export default {
         })
     },
     selectRestaurant: function (target) {
-      console.log(target)
       this.place = target
       this.$router.push('?content=restaurantMap')
     }
@@ -63,7 +59,7 @@ export default {
   data: () => ({
     restaurantName: '',
     restaurants: [],
-    place: {lat: 127, lng: 39},
+    place: {},
     secondPageName: 'searchRestaurant'
   }),
   computed: {
