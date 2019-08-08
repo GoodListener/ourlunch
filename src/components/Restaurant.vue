@@ -6,7 +6,7 @@
         <div class="search_bar">
           <Input type="text" label="식당 검색"
             v-model="restaurantName"
-            @keyup.enter="searchRestaurant"/><Icon @click="searchRestaurant">[돋보기 이미지]</Icon>
+            @keyup.enter="searchRestaurant"/><Icon @click="searchRestaurant"></Icon>
         </div>
         <div class="restaurant_list">
           <li class="list" v-for=" restaurant in restaurants" v-bind:key="restaurant.key" @click="selectRestaurant(restaurant)">
@@ -18,7 +18,8 @@
         </div>
       </PageContent>
       <PageContent content-no="restaurantMap">
-        <div>map 표시 페이지
+        <div>
+          <div v-if="!place.id">식당을 검색해주세요.</div>
           <KakaoMap :place="place"></KaKaoMap>
         </div>
       </PageContent>
@@ -26,12 +27,17 @@
         <div>식당 종류 표시 페이지</div>
       </PageContent>
     </Page>
+    <div v-if="page != 0" class="buttons">
+        <Button class="default" @click="prevPage()">이전</Button>
+        <Button class="primary" @click="nextPage()">다음</Button>
+    </div>
   </div>
 </template>
 <script>
 import Title from '@/components/ui/Title'
 import Input from '@/components/ui/Input'
 import Icon from '@/components/ui/Icon'
+import Button from '@/components/ui/Button'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
 import { getRestaurants } from '../api/index.js'
@@ -40,7 +46,7 @@ import KakaoMap from '@/components/KakaoMap'
 export default {
   name: 'Restaurant',
   components: {
-    Title, Input, Icon, Page, PageContent, KakaoMap
+    Title, Input, Icon, Button, Page, PageContent, KakaoMap
   },
   methods: {
     searchRestaurant: function () {
@@ -54,20 +60,28 @@ export default {
     selectRestaurant: function (target) {
       this.place = target
       this.$router.push('?content=restaurantMap')
+      this.page = 1
+    },
+    prevPage: () => {
+
+    },
+    nextPage: () => {
+
     }
   },
   data: () => ({
+    contentArray: ['searchRestaurant', 'restaurantMap', 'saveRestaurant'],
     restaurantName: '',
     restaurants: [],
     place: {},
-    secondPageName: 'searchRestaurant'
+    page: 0
   }),
   computed: {
     content: function () {
       if (this.$route.query && this.$route.query.content) {
         return this.$route.query.content
       } else {
-        return this.secondPageName
+        return this.contentArray[0]
       }
     }
   }

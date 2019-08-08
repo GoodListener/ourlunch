@@ -1,5 +1,5 @@
 <template>
-  <div><div id="map"></div>{{place}}</div>
+  <div><div id="map"></div></div>
 </template>
 
 <script>
@@ -9,10 +9,11 @@ export default {
   name: 'KakaoMap',
   props: ['place'],
   data: () => ({
-    map: {}
+    map: {},
+    kakao: {}
   }),
   mounted: () => {
-    this.info = {lat: 33.4970353986304, lng: 126.508921919644}
+    this.info = {lat: 37.5073734599034, lng: 127.05683538326616}
     loadScriptOnce('https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=9371d0a85e46655cd886905c0cab174c')
       .then(() => {
         window.kakao.maps.load(() => {
@@ -32,9 +33,16 @@ export default {
     }
   },
   methods: {
-    setCenter: (newPlace) => {
-      const pos = new window.kakao.maps.LatLng(newPlace.y, newPlace.x)
+    setCenter: (place) => {
+      const pos = new window.kakao.maps.LatLng(place.y, place.x)
       this.map.setCenter(pos)
+
+      const infoWindow = new window.kakao.maps.InfoWindow({
+        position: pos,
+        content: '<div style="padding: 5px;">' + place.place_name + '</div>'
+      })
+
+      infoWindow.open(this.map)
     }
   }
 }
