@@ -10,7 +10,8 @@ export default {
   props: ['place'],
   data: () => ({
     map: {},
-    kakao: {}
+    kakao: {},
+    infoWindow: {}
   }),
   mounted: () => {
     this.info = {lat: 37.5073734599034, lng: 127.05683538326616}
@@ -37,12 +38,16 @@ export default {
       const pos = new window.kakao.maps.LatLng(place.y, place.x)
       this.map.setCenter(pos)
 
-      const infoWindow = new window.kakao.maps.InfoWindow({
+      if (this.infoWindow) {
+        this.infoWindow.close()
+      }
+
+      this.infoWindow = new window.kakao.maps.InfoWindow({
         position: pos,
         content: '<div style="padding: 5px;">' + place.place_name + '</div>'
       })
 
-      infoWindow.open(this.map)
+      this.infoWindow.open(this.map)
     }
   }
 }
@@ -52,6 +57,6 @@ export default {
 <style scoped>
 #map {
   width: 100%;
-  height: 500px;
+  height: 300px;
 }
 </style>

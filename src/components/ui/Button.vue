@@ -50,29 +50,34 @@ export default {
   background-color: #FFF;
   color: #329AFC;
 }
-.gray_btn{
-  border: 1px solid #808080;
-  color: #959595;
-}
+
 .default:hover {
   border: 1px solid #5FB0FC;
   background-color: #FAFAFA;
   color: #5FB0FC;
 }
+
 .primary {
   border: 1px solid #329AFC;
   background-color: #329AFC;
   color: #FFF;
 }
+
 .primary:hover {
   border: 1px solid #5FB0FC;
   background-color: #5FB0FC;
   color: #FFE;
 }
+
 .disabled {
   border: 1px solid #BDBDBD;
   background-color: #BDBDBD;
   color: #FFF;
   cursor: default;
+}
+
+.gray_btn{
+  border: 1px solid #808080;
+  color: #959595;
 }
 </style>

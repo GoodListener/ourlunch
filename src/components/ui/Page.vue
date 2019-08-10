@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .section {
-  width: 50%;
+  width: 90%;
   background-color: transparent;
   margin: auto;
 }
