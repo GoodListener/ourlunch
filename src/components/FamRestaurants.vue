@@ -1,21 +1,21 @@
 <template>
-<div class="famMember_wrapper">
+<div class="famRestaurants_wrapper">
   <div class="topFixArea">
-    <h3>명단</h3>
-    <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 초대링크 복사</TextButton>
+    <h3>식당 목록</h3>
+    <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 식당 추가</TextButton>
   </div>
   <ul>
-    <li class="list" v-for="(famMember, index) in famMembers" v-bind:key="index">
+    <li class="list" v-for="(famRestaurants, index) in famRestaurants" :key="index">
       <div class="left">
-        <span class="memberName">
-          {{ famMember.memberName }}
+        <span class="restaurantsName">
+          {{ famRestaurants.RestaurantsName }}
         </span>
-        <span class="appetite">
-          {{ famMember.appetite }}
+        <span class="type">
+          {{ famRestaurants.type }}
         </span>
         <br>
         <small class="restaurant">
-          미평가 식당: {{ famMember.restaurant }}개
+          평점:{{ famRestaurants.grade }}점
         </small>
       </div>
       <div class="right">
@@ -39,17 +39,17 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famMember from '@/data/famMember'
+import famRestaurants from '@/data/famRestaurants'
 
 export default {
   props: ['title'],
   data: () => ({
-    famMembers: famMember.member.famMembersdata
+    famRestaurants: famRestaurants.Restaurants.famRestaurants1
   }),
   mounted: () => {
-    console.log(famMember)
+    console.log(famRestaurants.Restaurants.famRestaurants1)
   },
-  name: 'FamMembers',
+  name: 'FamRestaurants',
   components: {
     Button, TextButton, Title, SubTitle, Input, Page, PageContent
   }
@@ -64,7 +64,7 @@ export default {
   background-color: white;
   border-bottom: 1px solid #e6e6e6;
 }
-.famMember_wrapper{
+.famRestaurants_wrapper{
   float: left;
   margin: 0px 20px;
 }
@@ -81,6 +81,7 @@ ul{
 }
 li.list{
   list-style: none;
+  margin-left: -1px;
   margin: 5px auto;
   padding: 20px 15px;
   border: 1px solid #DCDCDC;
@@ -96,7 +97,7 @@ li.list{
 .right{
   float: right;
 }
-.memberName{
+.restaurantsName{
   font-size: 20px;
   font-weight: bold;
   text-align: left;

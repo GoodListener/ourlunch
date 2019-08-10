@@ -11,6 +11,7 @@ import ChoiceLunch2 from '../components/ChoiceLunch2'
 import ChoiceLunchResult from '../components/ChoiceLunchResult'
 import Restaurant from '../components/Restaurant'
 import FamMembers from '../components/FamMembers'
+import FamRestaurants from '../components/FamRestaurants'
 
 // peace study
 import Study from '../components/Study'
@@ -78,6 +79,11 @@ export default new Router({
       path: '/famMembers',
       name: 'FamMembers',
       component: FamMembers
+    },
+    {
+      path: '/famRestaurants',
+      name: 'FamRestaurants',
+      component: FamRestaurants
     }
   ]
 })

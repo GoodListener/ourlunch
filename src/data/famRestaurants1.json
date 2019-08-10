@@ -1,0 +1,59 @@
+{
+  "famRestaurants1": [
+    {
+      "RestaurantsName": "카레마치",
+      "type": "카레",
+      "grade": "4"
+    },
+    {
+      "RestaurantsName": "임고집한우",
+      "type": "국밥집",
+      "grade": "2"
+    },
+    {
+      "RestaurantsName": "흑돈가",
+      "type": "고깃집",
+      "grade": "5"
+    },
+    {
+      "RestaurantsName": "크라이치즈버거",
+      "type": "패스트푸드",
+      "grade": "4"
+    },
+    {
+      "RestaurantsName": "카레마치",
+      "type": "카레",
+      "grade": "4"
+    },
+    {
+      "RestaurantsName": "임고집한우",
+      "type": "국밥집",
+      "grade": "2"
+    },
+    {
+      "RestaurantsName": "흑돈가",
+      "type": "고깃집",
+      "grade": "5"
+    },
+    {
+      "RestaurantsName": "크라이치즈버거",
+      "type": "패스트푸드",
+      "grade": "4"
+    },
+    {
+      "RestaurantsName": "임고집한우",
+      "type": "국밥집",
+      "grade": "2"
+    },
+    {
+      "RestaurantsName": "흑돈가",
+      "type": "고깃집",
+      "grade": "5"
+    },
+    {
+      "RestaurantsName": "크라이치즈버거",
+      "type": "패스트푸드",
+      "grade": "4"
+    }
+  ]
+}
