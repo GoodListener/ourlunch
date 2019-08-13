@@ -8,6 +8,9 @@
               type="text"
               label="회사명"
               v-model="family.companyName"
+              v-validate="'required|max:20'"
+              data-vv-name="회사명"
+              :error-messages="errors.collect('family.companyName')"
               required
             />
           </div>
@@ -16,9 +19,14 @@
               type="text"
               label="새로운 점심팸 이름"
               v-model="family.newFamilyName"
+              v-validate="'required|max:20'"
+              data-vv-name="점심팸 이름"
+              :error-messages="errors.collect('family.newFamilyName')"
+              required
             />
           </div>
         </PageContent>
+
         <PageContent content-no="2">
           <div class = "ID">
             <Input
@@ -42,6 +50,7 @@
             />
           </div>
         </PageContent>
+
         <PageContent content-no="3">
           <div class = "nickname">
             <Input
@@ -75,6 +84,9 @@ import PageContent from '@/components/ui/PageContent'
 import famData from '@/data/family'
 
 export default {
+  $_veeValidate: {
+    validator: 'new'
+  },
   name: 'StartFamily1',
   components: {
     SubTitle, Input, Button, Page, PageContent
@@ -87,7 +99,19 @@ export default {
       userPw: '',
       checkUserPw: '',
       userName: '',
-      appetite: ''
+      appetite: '',
+      dictionary: {
+        custom: {
+          companyName: {
+            required: () => 'can not be empty',
+            max: '20자 이내'
+          },
+          newFamName: {
+            required: () => 'newFamNaemd 은 필수값',
+            max: '20자ㅏ 이내'
+          }
+        }
+      }
     }
   }),
   methods: {
@@ -99,12 +123,18 @@ export default {
       }
     },
     nextPage: function () {
-      if (this.page < 3) {
-        this.$router.push('?page=' + (this.page + 1))
-      } else {
-        famData.fam = this.family
-        this.$router.push('startComplete')
-      }
+      console.log(this.errors)
+      this.$validator.validateAll()
+        .then(result => {
+          if (!result) return false
+          if (this.page < 3) {
+            this.$router.push('?page=' + (this.page + 1))
+          } else {
+            famData.fam = this.family
+            this.$router.push('startComplete')
+          }
+        })
+        .catch(e => console.error(e))
     }
   },
   computed: {

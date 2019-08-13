@@ -3,9 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VeeValidate from 'vee-validate'
 import { store } from './store/index.js'
 
 Vue.config.productionTip = false
+
+const validateConfig = {
+  locale: 'ko',
+  dictionary: {
+    ko: {
+      attributes: {
+        email: '이메일'
+      }
+    }
+  }
+}
+
+Vue.use(VeeValidate, validateConfig)
 
 /* eslint-disable no-new */
 new Vue({

@@ -12,6 +12,7 @@
     @focus="onfocus"
     @blur="onfocusout"
     @keyup="onkeyup"/>
+    <p class="error_msg">{{errorMessages}}</p>
   </div>
 </template>
 
@@ -25,7 +26,7 @@ export default {
   data: () => ({
     labelState: 'focusout'
   }),
-  props: ['type', 'label', 'value', 'required'],
+  props: ['type', 'label', 'value', 'required', 'errorMessages'],
   methods: {
     onfocus: function () {
       this.labelState = 'focusin'
@@ -85,5 +86,11 @@ input {
 .focusin {
   transform: scale(0.75) translate(-0.5rem, -1.32rem);
   color: gray;
+}
+
+.error_msg {
+  position: absolute;
+  top: 2.4rem;
+  font-size: 0.8rem;
 }
 </style>

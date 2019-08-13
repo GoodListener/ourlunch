@@ -4,9 +4,6 @@
     <div>
       <div class="middle">
         <div>
-          <Button class="default">점심팸에 참여하기</Button>
-        </div>
-        <div>
           <Button class="primary" @click="startFamily">새로운 점심 시작</Button>
         </div>
       </div>
@@ -39,7 +36,7 @@ export default {
 .middle {
   width: 100%;
   position: fixed;
-  bottom: 50px;
+  bottom: 150px;
 }
 
 </style>
