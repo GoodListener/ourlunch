@@ -8,6 +8,14 @@
         <div>
           <Button class="primary" @click="choiceLunch">오늘의 점심은?</Button>
         </div>
+      <div class="textButtons">
+        <div class="left">
+          <TextButton @click="handlefamRestaurantsButton">식당 목록</TextButton>
+        </div>
+        <div class="right">
+          <TextButton @click="handlefamMembersButton">멤버 목록</TextButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +36,14 @@ export default {
     },
     handleRestaurantButton: function () {
       this.$router.push('restaurant')
+    },
+    handlefamRestaurantsButton: function () {
+      this.$router.push('famRestaurants')
+    },
+    handlefamMembersButton: function () {
+      this.$router.push('famMembers')
     }
+
   }
 }
 </script>
@@ -37,7 +52,10 @@ export default {
 .title {
   margin-bottom: 270px;
 }
-
+.textbuttons{
+  float: left;
+  margin: 0px 20px;
+}
 .middle {
   width: 100%;
   position: fixed;
@@ -47,4 +65,13 @@ export default {
 .plus-icon {
   color: #535353;
 }
+.left{
+  width: 50%;
+  float: left;
+}
+.right{
+  width: 50%;
+  float: left;
+}
+/* 버튼 가운데로 할거임.. */
 </style>

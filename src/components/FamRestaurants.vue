@@ -25,7 +25,7 @@
     </li>
   </ul>
   <div class="buttons">
-      <Button class="default close_btn">닫기</Button>
+      <Button class="default close_btn" @click="handleMainButton">닫기</Button>
   </div>
 </div>
 </template>
@@ -43,6 +43,11 @@ import famRestaurants from '@/data/famRestaurants'
 
 export default {
   props: ['title'],
+  methods:{
+    handleMainButton: function () {
+      this.$router.push('Main')
+    }
+  },
   data: () => ({
     famRestaurants: famRestaurants.Restaurants.famRestaurants1
   }),

@@ -25,7 +25,7 @@
     </li>
   </ul>
   <div class="buttons">
-      <Button class="default close_btn">닫기</Button>
+      <Button class="default close_btn" @click="handleMainButton">닫기</Button>
   </div>
 </div>
 </template>
@@ -43,6 +43,11 @@ import famMember from '@/data/famMember'
 
 export default {
   props: ['title'],
+  methods:{
+    handleMainButton: function () {
+      this.$router.push('Main')
+    }
+  },
   data: () => ({
     famMembers: famMember.member.famMembersdata
   }),
@@ -110,7 +115,7 @@ li.list{
   text-align: left;
   color: #959595;
 }
-button.close_btn{
+.close_btn{
   width: 50%;
 }
 .buttons{
