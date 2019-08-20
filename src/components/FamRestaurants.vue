@@ -43,7 +43,7 @@ import famRestaurants from '@/data/famRestaurants'
 
 export default {
   props: ['title'],
-  methods:{
+  methods: {
     handleMainButton: function () {
       this.$router.push('Main')
     }

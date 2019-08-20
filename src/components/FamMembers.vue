@@ -43,7 +43,7 @@ import famMember from '@/data/famMember'
 
 export default {
   props: ['title'],
-  methods:{
+  methods: {
     handleMainButton: function () {
       this.$router.push('Main')
     }

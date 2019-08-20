@@ -84,7 +84,7 @@ input {
 }
 
 .focusin {
-  transform: scale(0.75) translate(-0.5rem, -1.32rem);
+  transform: scale(0.75) translateY(-1.32rem) translateX(calc(-18%));
   color: gray;
 }
 
@@ -92,5 +92,7 @@ input {
   position: absolute;
   top: 2.4rem;
   font-size: 0.8rem;
+  color: #DD5145;
+  text-align: justify;
 }
 </style>
