@@ -53,7 +53,6 @@ export default {
   margin-bottom: 270px;
 }
 .textbuttons{
-  float: left;
   margin: 0px 20px;
 }
 .middle {
@@ -68,10 +67,12 @@ export default {
 .left{
   width: 50%;
   float: left;
+  text-align: right
 }
 .right{
   width: 50%;
   float: left;
+  text-align: left
 }
 /* 버튼 가운데로 할거임.. */
 </style>

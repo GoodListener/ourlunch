@@ -26,11 +26,10 @@ export default {
 .base_textbutton {
   margin: 5px;
   padding: 5px 15px;
-  width: 200px;
+  width: auto;
   height: 30px;
   letter-spacing: 0.028rem;
   box-sizing: border-box;
-  border-radius: 20px;
   outline: none;
   cursor: pointer;
   border: none;
