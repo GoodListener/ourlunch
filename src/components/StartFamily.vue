@@ -9,8 +9,8 @@
               label="회사명"
               v-model="family.companyName"
               v-validate="'required|max:20'"
-              data-vv-name="회사명"
-              :error-messages="errors.collect('family.companyName')"
+              data-vv-name="companyName"
+              :error-messages="errors.first('companyName')"
               required
             />
           </div>
@@ -20,33 +20,46 @@
               label="새로운 점심팸 이름"
               v-model="family.newFamilyName"
               v-validate="'required|max:20'"
-              data-vv-name="점심팸 이름"
-              :error-messages="errors.collect('family.newFamilyName')"
+              data-vv-name="famName"
+              :error-messages="errors.first('famName')"
               required
             />
           </div>
         </PageContent>
 
         <PageContent content-no="2">
-          <div class = "ID">
+          <div class="ID">
             <Input
               type="text"
               label="ID"
               v-model="family.userId"
+              v-validate="'required|max:20'"
+              data-vv-name="id"
+              :error-messages="errors.first('id')"
+              required
             />
           </div>
-          <div class ="Password1">
+          <div class="Password1">
             <Input
               type="password"
-              label="비밀번호 입력"
+              label="비밀번호 입력(6자 이상)"
               v-model="family.userPw"
+              v-validate="'required|min:6'"
+              data-vv-name="password"
+              :error-messages="errors.first('password')"
+              required
+              ref="password"
             />
           </div>
-          <div class ="Password2">
+          <div class="Password2">
             <Input
               type="password"
               label="비밀번호 확인"
               v-model="family.checkUserPw"
+              v-validate="'required|confirmed:password'"
+              data-vv-name="passwordConfirm"
+              :error-messages="errors.first('passwordConfirm')"
+              required
             />
           </div>
         </PageContent>
@@ -57,6 +70,10 @@
               type="text"
               label="이름"
               v-model="family.userName"
+              v-validate="'required|max:20'"
+              data-vv-name="name"
+              :error-messages="errors.first('name')"
+              required
             />
           </div>
           <div class ="taste">
@@ -64,6 +81,10 @@
               type="text"
               label="나의 입맛은?"
               v-model="family.appetite"
+              v-validate="'required|max:20'"
+              data-vv-name="appetite"
+              :error-messages="errors.first('appetite')"
+              required
             />
           </div>
         </PageContent>
@@ -99,19 +120,7 @@ export default {
       userPw: '',
       checkUserPw: '',
       userName: '',
-      appetite: '',
-      dictionary: {
-        custom: {
-          companyName: {
-            required: () => 'can not be empty',
-            max: '20자 이내'
-          },
-          newFamName: {
-            required: () => 'newFamNaemd 은 필수값',
-            max: '20자ㅏ 이내'
-          }
-        }
-      }
+      appetite: ''
     }
   }),
   methods: {
@@ -123,18 +132,38 @@ export default {
       }
     },
     nextPage: function () {
-      console.log(this.errors)
-      this.$validator.validateAll()
-        .then(result => {
-          if (!result) return false
-          if (this.page < 3) {
-            this.$router.push('?page=' + (this.page + 1))
-          } else {
-            famData.fam = this.family
-            this.$router.push('startComplete')
-          }
-        })
-        .catch(e => console.error(e))
+      switch (this.page) {
+        case 1:
+          Promise.all([
+            this.$validator.validate('companyName'),
+            this.$validator.validate('famName')
+          ]).then(res => {
+            if (res.reduce((a, b) => a & b)) {
+              this.$router.push('?page=' + (this.page + 1))
+            }
+          })
+          break
+        case 2:
+          Promise.all([
+            this.$validator.validate('id'),
+            this.$validator.validate('password'),
+            this.$validator.validate('passwordConfirm')
+          ]).then(res => {
+            if (res.reduce((a, b) => a & b)) {
+              this.$router.push('?page=' + (this.page + 1))
+            }
+          })
+          break
+        case 3:
+          this.$validator.validateAll()
+            .then(res => {
+              if (res) {
+                famData.fam = this.family
+                this.$router.push('startComplete')
+              }
+            })
+          break
+      }
     }
   },
   computed: {
