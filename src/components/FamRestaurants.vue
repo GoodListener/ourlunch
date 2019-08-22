@@ -2,7 +2,7 @@
 <div class="famRestaurants_wrapper">
   <div class="topFixArea">
     <h3>식당 목록</h3>
-    <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 식당 추가</TextButton>
+    <TextButton class="copy_btn" @click="handleRestaurantButton"><i class="fas fa-plus-circle"></i> 식당 추가</TextButton>
   </div>
   <ul>
     <li class="list" v-for="(famRestaurants, index) in famRestaurants" :key="index">
@@ -46,6 +46,9 @@ export default {
   methods: {
     handleMainButton: function () {
       this.$router.push('Main')
+    },
+    handleRestaurantButton: function () {
+      this.$router.push('restaurant')
     }
   },
   data: () => ({
