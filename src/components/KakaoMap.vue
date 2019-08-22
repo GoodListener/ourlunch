@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     setCenter: (place) => {
+      this.map.relayout()
       const pos = new window.kakao.maps.LatLng(place.y, place.x)
       this.map.setCenter(pos)
 
