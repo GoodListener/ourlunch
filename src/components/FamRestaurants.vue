@@ -19,7 +19,10 @@
         </small>
       </div>
       <div class="right">
-        <Button class="mini default">식당 평가</Button>
+        <i v-for="index in 5" :key="index"
+          :class="index <= famRestaurants.grade / 2 ? 'fas fa-star star' :
+                  index <= Math.ceil(famRestaurants.grade / 2) && famRestaurants.grade % 2 ? 'fas fa-star-half-alt star' : 'far fa-star emptyStar'"></i>
+        <Button class="mini default" @click="evaluateRestaurant(famRestaurants.RestaurantsName)">식당 평가</Button>
         <Button class="mini default gray_btn">삭제</Button>
       </div>
     </li>
@@ -27,6 +30,7 @@
   <div class="buttons">
       <Button class="default close_btn" @click="handleMainButton">닫기</Button>
   </div>
+  <modals-container/>
 </div>
 </template>
 
@@ -40,6 +44,7 @@ import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
 import famRestaurants from '@/data/famRestaurants'
+import evaluateRestaurantModal from './modals/evaluateRestaurant'
 
 export default {
   props: ['title'],
@@ -49,10 +54,20 @@ export default {
     },
     handleRestaurantButton: function () {
       this.$router.push('restaurant')
+    },
+    evaluateRestaurant (restaurantName) {
+      this.$modal.show(evaluateRestaurantModal, {
+        restaurantName: restaurantName
+      }, {
+        width: '330px',
+        height: '150px',
+        draggable: true
+      })
     }
   },
   data: () => ({
-    famRestaurants: famRestaurants.Restaurants.famRestaurants1
+    famRestaurants: famRestaurants.Restaurants.famRestaurants1,
+    showGradeModal: false
   }),
   mounted: () => {
     console.log(famRestaurants.Restaurants.famRestaurants1)
@@ -126,5 +141,11 @@ button.close_btn{
   width: 100%;
   position: fixed;
   bottom: 50px;
+}
+.star{
+  color: #f7e63b;
+}
+.emptyStar{
+  color: rgba(55, 53, 47, 0.4);
 }
 </style>

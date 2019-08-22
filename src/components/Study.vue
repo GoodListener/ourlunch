@@ -5,10 +5,6 @@
     {{ famMember.memberName }}
     </li>
   </ul>
-  <Modal v-if="showModal" @close="showModal = false">
-    <h3 slot="header">modal header test</h3>
-    <div slot="body">우리의 점심</div>
-  </Modal>
 </div>
 </template>
 
@@ -21,13 +17,11 @@ import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
 import { getMembers } from '../api/index.js'
-import Modal from './ui/Modal.vue'
 
 export default {
   props: ['title'],
   data: () => ({
-    famMembers: [],
-    showModal: true
+    famMembers: []
   }),
   created () {
     getMembers()
@@ -41,7 +35,7 @@ export default {
   },
   name: 'Study',
   components: {
-    Button, Title, SubTitle, Input, Page, PageContent, Modal
+    Button, Title, SubTitle, Input, Page, PageContent
   },
   methods: {
     addNewTodo: function () {
