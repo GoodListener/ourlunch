@@ -2,6 +2,11 @@
   <div>
     <Title class="title">우리의점심</Title>
     <div>
+      <div>
+        <img class="main_image" src=static/loginpage_img.png>
+      </div>
+
+      <SubTitle> ⬇︎ 공감하면 바로시작 ⬇︎ </SubTitle>
       <div class="middle" v-if="!loginData.nickname">
           <div id="kakaoLoginButton"></div>
       </div>
@@ -59,23 +64,24 @@ export default {
 
 <style scoped>
 .title {
-  margin-bottom: 270px;
+  margin-bottom: 70px;
 }
-
+.main_image {
+  width: 100%;
+}
 .middle {
   width: 100%;
   position: fixed;
   bottom: 150px;
 }
-
 .profile_box {
   display: inline-flex;
   align-items: center;
 }
-
 .profile_image {
   width: 50px;
   border-radius: 30px;
 }
+
 
 </style>
