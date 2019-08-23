@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Test from '../components/Test'
 import Home from '../components/Home'
+import Login from '../components/Login'
 import StartFamily from '../components/StartFamily'
 import StartComplete from '../components/StartComplete'
 import JoinFam from '../components/JoinFam'
@@ -16,6 +16,9 @@ import FamRestaurants from '../components/FamRestaurants'
 // peace study
 import Study from '../components/Study'
 
+// ekim Test
+import Test from '../components/Test'
+
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +27,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/test',
