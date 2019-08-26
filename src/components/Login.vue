@@ -7,11 +7,8 @@
       </div>
 
       <SubTitle> ⬇︎ 공감하면 바로시작 ⬇︎ </SubTitle>
-      <div class="middle" v-if="!loginData.nickname">
+      <div class="middle">
           <div id="kakaoLoginButton"></div>
-      </div>
-      <div v-if="loginData.nickname" class="profile_box">
-        <img :src="loginData.thumbnail_image" class="profile_image">{{loginData.nickname}}
       </div>
     </div>
   </div>
@@ -19,22 +16,20 @@
 
 <script>
 import Title from '@/components/ui/Title'
+import SubTitle from '@/components/ui/SubTitle'
 import loadScriptOnce from 'load-script-once'
 
 export default {
   name: 'Login',
   components: {
-    Title
+    Title, SubTitle
   },
-  data: () => ({
-    loginData: {}
-  }),
   mounted: function () {
+    this.goNextStep()
     this.$nextTick(function () {
       loadScriptOnce('//developers.kakao.com/sdk/js/kakao.min.js')
         .then(() => {
           window.Kakao.init('1fbd6bb5f70208dbc01447307985588a')
-          window.Kakao.Auth.getStatusInfo(this.checkStatus)
           window.Kakao.Auth.createLoginButton({
             container: '#kakaoLoginButton',
             success: this.success,
@@ -49,7 +44,9 @@ export default {
   methods: {
     checkStatus: function (data) {
       if (data.status && data.status === 'connected') {
-        this.loginData = data.user.properties
+        data.user.properties.isLogined = true
+        this.$store.commit('loginUser', data.user.properties)
+        this.goNextStep()
       }
     },
     success: function (data) {
@@ -57,6 +54,11 @@ export default {
     },
     failure: function (result) {
       console.error(result)
+    },
+    goNextStep: function () {
+      if (this.$store.state.loginUser.isLogined) {
+        this.$router.push('./')
+      }
     }
   }
 }
@@ -68,11 +70,10 @@ export default {
 }
 .main_image {
   width: 100%;
+  max-width: 30rem;
 }
 .middle {
   width: 100%;
-  position: fixed;
-  bottom: 150px;
 }
 .profile_box {
   display: inline-flex;
@@ -82,6 +83,5 @@ export default {
   width: 50px;
   border-radius: 30px;
 }
-
 
 </style>

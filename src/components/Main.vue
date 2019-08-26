@@ -1,7 +1,11 @@
 <template>
   <div>
-    <Title class="title">?</Title>
-    <div>
+    <Title class="title">밥먹자</Title>
+    <SubTitle class="sub_title">
+      <p>팸 이름: {{getFamily.familyName}}</p>
+      <p>초대 링크: {{getFamily.inviteLink}}</p>
+    </SubTitle>
+    <div class="bottom_area">
         <div>
           <TextButton class="basic" @click="handleRestaurantButton"><i class="fas fa-plus-circle plus-icon"></i> 식당 등록하기</TextButton>
         </div>
@@ -24,11 +28,18 @@
 import Button from '@/components/ui/Button'
 import TextButton from '@/components/ui/TextButton'
 import Title from '@/components/ui/Title'
+import SubTitle from '@/components/ui/SubTitle'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Main',
   components: {
-    Button, TextButton, Title
+    Button, TextButton, Title, SubTitle
+  },
+  computed: {
+    ...mapGetters([
+      'getLoginUser', 'getFamily'
+    ])
   },
   methods: {
     choiceLunch: function () {
@@ -50,8 +61,17 @@ export default {
 
 <style scoped>
 .title {
-  margin-bottom: 270px;
+
 }
+
+.sub_title {
+
+}
+
+.bottom_area {
+  margin-top: 270px;
+}
+
 .textbuttons{
   margin: 0px 20px;
 }

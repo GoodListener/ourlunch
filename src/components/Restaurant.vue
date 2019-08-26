@@ -41,7 +41,7 @@
       </PageContent>
     </Page>
     <div class="buttons">
-      <Button v-if="page > 0" class="default" @click="prevPage()">이전</Button>
+      <Button v-if="page >= 0" class="default" @click="prevPage()">이전</Button>
       <Button v-if="page != 0 && page < (contentArray.length - 1)" class="primary" @click="nextPage()">다음</Button>
       <Button v-if="content == 'pickRestaurant' && !!place.id" class="primary" @click="submit()">식당 등록</Button>
     </div>
@@ -57,6 +57,7 @@ import PageContent from '@/components/ui/PageContent'
 import { getRestaurants } from '../api/index.js'
 import KakaoMap from '@/components/KakaoMap'
 import RestaurantCategory from '@/data/restaurantCategory.json'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Restaurant',
@@ -66,7 +67,11 @@ export default {
   methods: {
     searchRestaurant: function () {
       getRestaurants({
-        query: this.restaurantName
+        query: this.restaurantName,
+        lat: this.getCompany.lat,
+        lng: this.getCompany.lng, // 위치는 브이플렉스
+        radius: 1500, // 1500m
+        category: 'FD6' // kakao category : 음식점
       })
         .then(response => {
           this.restaurants = response.data.documents
@@ -96,6 +101,9 @@ export default {
     selectCategory: ''
   }),
   computed: {
+    ...mapGetters([
+      'getCompany'
+    ]),
     content: function () {
       if (this.$route.query && this.$route.query.content) {
         return this.$route.query.content
