@@ -158,7 +158,8 @@ button.base_button.primary {
 }
 
 .company,.nickname {
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .buttons {
@@ -169,9 +170,12 @@ button.base_button.primary {
 
 .my_profile_image
 {
+  margin-top: 50px;
   width: 80px;
   height: 80px;
   border-radius: 40px;
+  object-fit: cover;
+
 }
 
 </style>

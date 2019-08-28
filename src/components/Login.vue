@@ -70,9 +70,10 @@ export default {
 }
 .main_image {
   width: 100%;
-  max-width: 30rem;
+  max-width: 20rem;
 }
 .middle {
+  padding-top: 20px;
   width: 100%;
 }
 .profile_box {
