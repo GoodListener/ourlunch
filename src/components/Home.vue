@@ -14,11 +14,22 @@
 <script>
 import Button from '@/components/ui/Button'
 import Title from '@/components/ui/Title'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     Button, Title
+  },
+  mounted: function () {
+    if (!this.getLoginUser.isLogined) {
+      this.$router.push('/login')
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'getLoginUser'
+    ])
   },
   methods: {
     startFamily: function () {

@@ -1,8 +1,39 @@
 <template>
   <div>
-    <SubTitle class="title">점심팸 새로 시작 ({{page}}/3)</SubTitle>
+    <SubTitle class="title">우리의점심 점심팸 시작하기</SubTitle>
       <Page :page="page">
         <PageContent content-no="1">
+          <div class="my_profile_image_box">
+            <img :src="getLoginUser.profile_image" class="my_profile_image">
+          </div>
+          <div class="nickname">
+            <Input
+              type="text"
+              label="이름"
+              v-model="user.userName"
+              v-validate="'required|max:20'"
+              data-vv-name="name"
+              :error-messages="errors.first('name')"
+              required
+            />
+          </div>
+          <div class ="taste">
+            <Input
+              type="text"
+              label="나의 입맛은?"
+              v-model="user.appetite"
+              v-validate="'required|max:20'"
+              data-vv-name="appetite"
+              :error-messages="errors.first('appetite')"
+              required
+            />
+          </div>
+        </PageContent>
+
+        <PageContent content-no="2">
+          <div class="my_profile_image_box">
+            <img :src="getLoginUser.profile_image" class="my_profile_image">
+          </div>
           <div class="company">
             <Input
               type="text"
@@ -17,73 +48,11 @@
           <div class="famname">
             <Input
               type="text"
-              label="새로운 점심팸 이름"
-              v-model="family.newFamilyName"
+              label="점심팸 이름"
+              v-model="family.familyName"
               v-validate="'required|max:20'"
               data-vv-name="famName"
               :error-messages="errors.first('famName')"
-              required
-            />
-          </div>
-        </PageContent>
-
-        <PageContent content-no="2">
-          <div class="ID">
-            <Input
-              type="text"
-              label="ID"
-              v-model="family.userId"
-              v-validate="'required|max:20'"
-              data-vv-name="id"
-              :error-messages="errors.first('id')"
-              required
-            />
-          </div>
-          <div class="Password1">
-            <Input
-              type="password"
-              label="비밀번호 입력(6자 이상)"
-              v-model="family.userPw"
-              v-validate="'required|min:6'"
-              data-vv-name="password"
-              :error-messages="errors.first('password')"
-              required
-              ref="password"
-            />
-          </div>
-          <div class="Password2">
-            <Input
-              type="password"
-              label="비밀번호 확인"
-              v-model="family.checkUserPw"
-              v-validate="'required|confirmed:password'"
-              data-vv-name="passwordConfirm"
-              :error-messages="errors.first('passwordConfirm')"
-              required
-            />
-          </div>
-        </PageContent>
-
-        <PageContent content-no="3">
-          <div class = "nickname">
-            <Input
-              type="text"
-              label="이름"
-              v-model="family.userName"
-              v-validate="'required|max:20'"
-              data-vv-name="name"
-              :error-messages="errors.first('name')"
-              required
-            />
-          </div>
-          <div class ="taste">
-            <Input
-              type="text"
-              label="나의 입맛은?"
-              v-model="family.appetite"
-              v-validate="'required|max:20'"
-              data-vv-name="appetite"
-              :error-messages="errors.first('appetite')"
               required
             />
           </div>
@@ -102,25 +71,25 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famData from '@/data/family'
+import { mapGetters } from 'vuex'
 
 export default {
   $_veeValidate: {
     validator: 'new'
   },
-  name: 'StartFamily1',
+  name: 'StartFamily',
   components: {
     SubTitle, Input, Button, Page, PageContent
   },
   data: () => ({
-    family: {
-      companyName: '',
-      newFamilyName: '',
-      userId: '',
-      userPw: '',
-      checkUserPw: '',
+    user: {
       userName: '',
       appetite: ''
+    },
+    family: {
+      isJoined: false,
+      companyName: '',
+      familyName: ''
     }
   }),
   methods: {
@@ -135,8 +104,8 @@ export default {
       switch (this.page) {
         case 1:
           Promise.all([
-            this.$validator.validate('companyName'),
-            this.$validator.validate('famName')
+            this.$validator.validate('name'),
+            this.$validator.validate('appetite')
           ]).then(res => {
             if (res.reduce((a, b) => a & b)) {
               this.$router.push('?page=' + (this.page + 1))
@@ -144,21 +113,18 @@ export default {
           })
           break
         case 2:
-          Promise.all([
-            this.$validator.validate('id'),
-            this.$validator.validate('password'),
-            this.$validator.validate('passwordConfirm')
-          ]).then(res => {
-            if (res.reduce((a, b) => a & b)) {
-              this.$router.push('?page=' + (this.page + 1))
-            }
-          })
-          break
-        case 3:
           this.$validator.validateAll()
             .then(res => {
               if (res) {
-                famData.fam = this.family
+                const fullAuthUser = this.getLoginUser
+                fullAuthUser.name = this.user.userName
+                fullAuthUser.appetite = this.user.appetite
+                fullAuthUser.isFullAuth = true
+                this.$store.commit('loginUser', fullAuthUser)
+
+                this.family.isJoined = true
+                this.family.inviteLink = 'family/' + this.family.familyName
+                this.$store.commit('joinFamily', this.family)
                 this.$router.push('startComplete')
               }
             })
@@ -167,6 +133,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'getLoginUser'
+    ]),
     page: function () {
       if (this.$route.query && this.$route.query.page) {
         return parseInt(this.$route.query.page)
@@ -188,7 +157,7 @@ button.base_button.primary {
   width: 50%;
 }
 
-.company {
+.company,.nickname {
   margin-bottom: 50px;
 }
 
@@ -196,6 +165,13 @@ button.base_button.primary {
   width: 100%;
   position: fixed;
   bottom: 50px;
+}
+
+.my_profile_image
+{
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
 }
 
 </style>

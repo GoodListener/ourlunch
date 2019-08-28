@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SubTitle class ="title1">축하합니다! {{ getLoginUser.memberName }}님</SubTitle>
+    <SubTitle class ="title1">축하합니다! {{ getLoginUser.name }}님</SubTitle>
     <SubTitle class ="title2">점심팸 등록 완료!</SubTitle>
 
       <div class ="buttons">
@@ -17,6 +17,14 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'StartComplete',
+  mounted: function () {
+    if (!this.getLoginUser.isLogined) {
+      this.$router.push('login')
+    }
+    if (!this.getLoginUser.isFullAuth) {
+      this.$router.push('./')
+    }
+  },
   computed: {
     ...mapGetters([
       'getLoginUser'
