@@ -2,18 +2,32 @@
   <div class="dialog-content">
     <div class="dialog-title">{{ restaurantName }}의 평가</div>
     <div class="dialog-text">
-      <i v-for="index in 10" :key="index" class="far fa-star emptyStar"></i>
+      <i v-for="index in 10"
+        :key="index"
+        class="fa-star-half"
+        :class="[score >= index ? 'fas selected' : 'far', index % 2 ? '' : 'fa-flip-horizontal']"
+        @click="selectStar(index)"></i>
     </div>
     <div class="vue-dialog-buttons">
-      <button tyoe="button" class="vue-dialog-button" @click="$emit('close')">확인</button>
-      <button tyoe="button" class="vue-dialog-button" @click="$emit('close')">취소</button>
+      <button type="button" class="vue-dialog-button" @click="$emit('close')">확인</button>
+      <button type="button" class="vue-dialog-button" @click="$emit('close')">취소</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['restaurantName']
+  props: ['restaurantName'],
+  data () {
+    return {
+      score: 1
+    }
+  },
+  methods: {
+    selectStar (index) {
+      this.score = index
+    }
+  }
 }
 </script>
 <style scoped>
@@ -55,8 +69,15 @@ div{
   letter-spacing: 1px;
   flex: 1 1 50%;
 }
-.emptyStar{
-  color: rgba(55, 53, 47, 0.4);
-  font-size: 24px;
+.fa-star-half{
+  font-size: 32px;
+  width: 18px;
+  overflow: hidden;
+}
+.fa-star-half{
+  color: lightgray;
+}
+.selected.fa-star-half{
+  color: #f7e63b;
 }
 </style>

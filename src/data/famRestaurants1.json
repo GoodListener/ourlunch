@@ -2,8 +2,7 @@
   "famRestaurants1": [
     {
       "RestaurantsName": "카레마치",
-      "type": "카레",
-      "grade": "4"
+      "type": "카레"
     },
     {
       "RestaurantsName": "임고집한우",
@@ -22,13 +21,11 @@
     },
     {
       "RestaurantsName": "카레마치",
-      "type": "카레",
-      "grade": "4"
+      "type": "카레"
     },
     {
       "RestaurantsName": "임고집한우",
-      "type": "국밥집",
-      "grade": "2"
+      "type": "국밥집"
     },
     {
       "RestaurantsName": "흑돈가",
