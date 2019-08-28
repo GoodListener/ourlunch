@@ -5,24 +5,26 @@
     <TextButton class="copy_btn" @click="handleRestaurantButton"><i class="fas fa-plus-circle"></i> 식당 추가</TextButton>
   </div>
   <ul>
-    <li class="list" v-for="(famRestaurants, index) in famRestaurants" :key="index">
+    <li class="list" v-for="(famRestaurant, index) in famRestaurants" :key="index">
       <div class="left">
         <span class="restaurantsName">
-          {{ famRestaurants.RestaurantsName }}
+          {{ famRestaurant.RestaurantsName }}
         </span>
         <span class="type">
-          {{ famRestaurants.type }}
+          {{ famRestaurant.type }}
         </span>
         <br>
         <small class="restaurant">
-          평점:{{ famRestaurants.grade }}점
+          평점:{{ famRestaurant.grade }}점
         </small>
       </div>
       <div class="right">
-        <i v-for="index in 5" :key="index"
-          :class="index <= famRestaurants.grade / 2 ? 'fas fa-star star' :
-                  index <= Math.ceil(famRestaurants.grade / 2) && famRestaurants.grade % 2 ? 'fas fa-star-half-alt star' : 'far fa-star emptyStar'"></i>
-        <Button class="mini default" @click="evaluateRestaurant(famRestaurants.RestaurantsName)">식당 평가</Button>
+        <span v-if="famRestaurant.grade">
+          <i v-for="index in 5" :key="index"
+            :class="index <= famRestaurant.grade / 2 ? 'fas fa-star star' :
+                    index <= Math.ceil(famRestaurant.grade / 2) && famRestaurant.grade % 2 ? 'fas fa-star-half-alt star' : 'far fa-star emptyStar'"></i>
+        </span>
+        <Button v-else class="mini default" @click="evaluateRestaurant(famRestaurant.RestaurantsName)">식당 평가</Button>
         <Button class="mini default gray_btn">삭제</Button>
       </div>
     </li>
