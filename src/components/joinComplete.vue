@@ -1,34 +1,8 @@
 <template>
   <div>
-    <SubTitle>{{$route.params.familyName}}</SubTitle>
-    <Title class="title">{{$route.params.familyName}} 점심팸 시작하기</Title>
-    <div class="my_profile_image_box">
-      <img :src="getLoginUser.profile_image" class="my_profile_image">
-    </div>
-    <div class="nickname">
-      <Input
-        type="text"
-        label="이름"
-        v-model="user.userName"
-        v-validate="'required|max:20'"
-        data-vv-name="name"
-        :error-messages="errors.first('name')"
-        required
-      />
-    </div>
-    <div class ="taste">
-      <Input
-        type="text"
-        label="나의 입맛은?"
-        v-model="user.appetite"
-        v-validate="'required|max:20'"
-        data-vv-name="appetite"
-        :error-messages="errors.first('appetite')"
-        required
-      />
-    </div>
+    <Title class="title">축하합니다. {{getLoginUser.name}}님<br>점심팸에 가입되었습니다.</Title>
     <div class ="buttons">
-      <Button class="primary" @click="complete">완료</Button>
+      <Button class="primary" @click="complete">우리의 점심 시작하기</Button>
     </div>
   </div>
 </template>
@@ -64,7 +38,7 @@ export default {
       this.$validator.validateAll()
         .then(res => {
           if (res) {
-            this.$router.push('../joinComplete/')
+            this.$router.push('../main')
           }
         })
     }
@@ -73,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  font-size: 25px;
+}
+
 button.base_button.default{
   width: 20%;
 }

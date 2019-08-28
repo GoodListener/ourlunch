@@ -148,7 +148,6 @@ export default {
 </script>
 
 <style scoped>
-
 button.base_button.default {
   width: 20%;
 }

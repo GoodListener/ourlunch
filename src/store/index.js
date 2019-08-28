@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 const state = {
   loginUser: { // TODO: 나중에 제거
+    userLevel: 'member',
     isLogined: false, // kakao login state
     isFullAuth: false, // ourlunch login state
     nickname: '김응철', // kakao login nickname
@@ -18,7 +19,7 @@ const state = {
   },
   family: {
     isJoined: true,
-    inviteLink: 'invite/컴퍼니',
+    inviteLink: 'join/컴퍼니',
     companyName: '컴퍼니',
     familyName: '스팸'
   },

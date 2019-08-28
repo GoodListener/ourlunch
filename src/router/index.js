@@ -2,9 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import Login from '../components/Login'
+import Join from '../components/Join'
+import JoinFam from '../components/JoinFam'
+import JoinComplete from '../components/JoinComplete'
 import StartFamily from '../components/StartFamily'
 import StartComplete from '../components/StartComplete'
-import JoinFam from '../components/JoinFam'
 import Main from '../components/Main'
 import ChoiceLunch1 from '../components/ChoiceLunch1'
 import ChoiceLunch2 from '../components/ChoiceLunch2'
@@ -34,6 +36,21 @@ export default new Router({
       component: Login
     },
     {
+      path: '/join/:familyName',
+      name: 'Join',
+      component: Join
+    },
+    {
+      path: '/joinFam/:familyName',
+      name: 'JoinFam',
+      component: JoinFam
+    },
+    {
+      path: '/joinComplete/:familyName',
+      name: 'JoinComplete',
+      component: JoinComplete
+    },
+    {
       path: '/test',
       name: 'Test',
       component: Test
@@ -52,11 +69,6 @@ export default new Router({
       path: '/startComplete',
       name: 'StartComplete',
       component: StartComplete
-    },
-    {
-      path: '/joinFam',
-      name: 'JoinFam',
-      component: JoinFam
     },
     {
       path: '/main',
