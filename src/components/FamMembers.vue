@@ -1,7 +1,11 @@
 <template>
 <div class="famMember_wrapper">
   <div class="topFixArea">
-    <h3>명단</h3>
+    <div class="backButton" @click="handleMainButton">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="headerText">팸 명단
+    </div>
     <TextButton class="copy_btn"><i class="fas fa-plus-circle"></i> 초대링크 복사</TextButton>
   </div>
   <ul>
@@ -24,9 +28,6 @@
       </div>
     </li>
   </ul>
-  <div class="buttons">
-      <Button class="default close_btn" @click="handleMainButton">닫기</Button>
-  </div>
 </div>
 </template>
 
@@ -73,9 +74,10 @@ export default {
   float: left;
   margin: 0px 20px;
 }
-h3{
+.backButton{
   float: left;
-  margin-left: 20px;
+  padding: 18px 15px 18px 15px;
+  text-align: center;
 }
 .copy_btn{
   float: right;
@@ -115,12 +117,10 @@ li.list{
   text-align: left;
   color: #959595;
 }
-.close_btn{
-  width: 50%;
-}
-.buttons{
-  width: 100%;
-  position: fixed;
-  bottom: 50px;
+.headerText{
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 15px 15px 0px;
 }
 </style>

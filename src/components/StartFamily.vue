@@ -174,7 +174,6 @@ button.base_button.primary {
   height: 80px;
   border-radius: 40px;
   object-fit: cover;
-
 }
 
 </style>

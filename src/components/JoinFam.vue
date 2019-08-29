@@ -94,5 +94,6 @@ button.base_button.primary{
   width: 80px;
   height: 80px;
   border-radius: 40px;
+  object-fit: cover;
 }
 </style>

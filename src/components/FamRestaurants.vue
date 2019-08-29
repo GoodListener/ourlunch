@@ -1,7 +1,11 @@
 <template>
 <div class="famRestaurants_wrapper">
   <div class="topFixArea">
-    <h3>식당 목록</h3>
+    <div class="backButton" @click="handleMainButton">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <div class="headerText">식당 목록
+    </div>
     <TextButton class="copy_btn" @click="handleRestaurantButton"><i class="fas fa-plus-circle"></i> 식당 추가</TextButton>
   </div>
   <ul>
@@ -29,9 +33,6 @@
       </div>
     </li>
   </ul>
-  <div class="buttons">
-      <Button class="default close_btn" @click="handleMainButton">닫기</Button>
-  </div>
   <modals-container/>
 </div>
 </template>
@@ -89,13 +90,20 @@ export default {
   background-color: white;
   border-bottom: 1px solid #e6e6e6;
 }
+.backButton{
+  float: left;
+  padding: 18px 15px 18px 15px;
+  text-align: center;
+}
 .famRestaurants_wrapper{
   float: left;
   margin: 0px 20px;
 }
-h3{
+.headerText{
   float: left;
-  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 15px 15px 0px;
 }
 .copy_btn{
   float: right;
@@ -135,14 +143,6 @@ li.list{
 .restaurant{
   text-align: left;
   color: #959595;
-}
-button.close_btn{
-  width: 50%;
-}
-.buttons{
-  width: 100%;
-  position: fixed;
-  bottom: 50px;
 }
 .star{
   color: #f7e63b;
