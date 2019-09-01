@@ -15,10 +15,7 @@ import Input from '@/components/ui/Input'
 import { mapGetters } from 'vuex'
 
 export default {
-  $_veeValidate: {
-    validator: 'new'
-  },
-  name: 'JoinFam',
+  name: 'JoinComplete',
   components: {
     Title, SubTitle, Input, Button
   },
@@ -35,12 +32,7 @@ export default {
   },
   methods: {
     complete: function () {
-      this.$validator.validateAll()
-        .then(res => {
-          if (res) {
-            this.$router.push('../main')
-          }
-        })
+      this.$router.push('../main')
     }
   }
 }

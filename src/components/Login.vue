@@ -17,7 +17,7 @@
 <script>
 import Title from '@/components/ui/Title'
 import SubTitle from '@/components/ui/SubTitle'
-import loadScriptOnce from 'load-script-once'
+import kakaoAuth from '@/utils/kakaoAuth'
 
 export default {
   name: 'Login',
@@ -27,18 +27,7 @@ export default {
   mounted: function () {
     this.goNextStep()
     this.$nextTick(function () {
-      loadScriptOnce('//developers.kakao.com/sdk/js/kakao.min.js')
-        .then(() => {
-          window.Kakao.init('1fbd6bb5f70208dbc01447307985588a')
-          window.Kakao.Auth.createLoginButton({
-            container: '#kakaoLoginButton',
-            success: this.success,
-            fail: this.failure
-          })
-        })
-        .catch((e) => {
-          console.error(e)
-        })
+      kakaoAuth('kakaoLoginButton', this.success, this.failure)
     })
   },
   methods: {

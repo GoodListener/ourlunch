@@ -54,7 +54,7 @@ import Icon from '@/components/ui/Icon'
 import Button from '@/components/ui/Button'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import { getRestaurants } from '../api/index.js'
+import { getSearchRestaurant } from '../api/index.js'
 import KakaoMap from '@/components/KakaoMap'
 import RestaurantCategory from '@/data/restaurantCategory.json'
 import { mapGetters } from 'vuex'
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     searchRestaurant: function () {
-      getRestaurants({
+      getSearchRestaurant({
         query: this.restaurantName,
         lat: this.getCompany.lat,
         lng: this.getCompany.lng, // 위치는 브이플렉스

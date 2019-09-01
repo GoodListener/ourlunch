@@ -14,6 +14,7 @@
         data-vv-name="name"
         :error-messages="errors.first('name')"
         required
+        @keyup="handleEnter"
       />
     </div>
     <div class ="taste">
@@ -25,6 +26,7 @@
         data-vv-name="appetite"
         :error-messages="errors.first('appetite')"
         required
+        @keyup="handleEnter"
       />
     </div>
     <div class ="buttons">
@@ -52,6 +54,11 @@ export default {
     user: {
       userName: '',
       appetite: ''
+    },
+    family: {
+      isJoined: false,
+      companyName: '',
+      familyName: ''
     }
   }),
   computed: {
@@ -60,11 +67,25 @@ export default {
     ])
   },
   methods: {
+    handleEnter: function (e) {
+      if (e.keyCode === 13) {
+        this.complete()
+      }
+    },
     complete: function () {
       this.$validator.validateAll()
         .then(res => {
           if (res) {
-            this.$router.push('../joinComplete/')
+            const fullAuthUser = this.getLoginUser
+            fullAuthUser.name = this.user.userName
+            fullAuthUser.appetite = this.user.appetite
+            fullAuthUser.isFullAuth = true
+            this.$store.commit('loginUser', fullAuthUser)
+
+            this.family.isJoined = true
+            this.family.inviteLink = 'family/' + this.family.familyName
+            this.$store.commit('joinFamily', this.family)
+            this.$router.push('../joinComplete/' + this.$route.params.familyName)
           }
         })
     }

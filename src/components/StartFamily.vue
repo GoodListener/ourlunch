@@ -15,6 +15,7 @@
               data-vv-name="name"
               :error-messages="errors.first('name')"
               required
+              @keyup="handleEnter"
             />
           </div>
           <div class ="taste">
@@ -26,6 +27,7 @@
               data-vv-name="appetite"
               :error-messages="errors.first('appetite')"
               required
+              @keyup="handleEnter"
             />
           </div>
         </PageContent>
@@ -43,6 +45,7 @@
               data-vv-name="companyName"
               :error-messages="errors.first('companyName')"
               required
+              @keyup="handleEnter"
             />
           </div>
           <div class="famname">
@@ -54,6 +57,7 @@
               data-vv-name="famName"
               :error-messages="errors.first('famName')"
               required
+              @keyup="handleEnter"
             />
           </div>
         </PageContent>
@@ -98,6 +102,11 @@ export default {
         this.$router.push('?page=' + (this.page - 1))
       } else {
         this.$router.push('/')
+      }
+    },
+    handleEnter: function (e) {
+      if (e.keyCode === 13) {
+        this.nextPage()
       }
     },
     nextPage: function () {

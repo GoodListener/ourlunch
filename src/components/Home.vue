@@ -4,6 +4,7 @@
     <div>
       <div class="middle">
         <div>
+          <Button class="default">링크 받아서 입장하는</Button>
           <Button class="primary" @click="startFamily">새로운 점심 시작</Button>
         </div>
       </div>
