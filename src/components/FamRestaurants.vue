@@ -46,7 +46,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famRestaurants from '@/data/famRestaurants'
+import famRestaurants from '@/apiFakeData/famRestaurants'
 import evaluateRestaurantModal from './modals/evaluateRestaurant'
 
 export default {

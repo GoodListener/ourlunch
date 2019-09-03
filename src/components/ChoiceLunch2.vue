@@ -18,7 +18,7 @@
 <script>
 import Button from '@/components/ui/Button'
 import SubTitle from '@/components/ui/SubTitle'
-import restaurants from '@/data/fakeRestaurantApiData.json'
+import restaurants from '@/apiFakeData/fakeRestaurantApiData.json'
 
 export default {
   name: 'ChoiceLunch2',

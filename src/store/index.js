@@ -7,16 +7,19 @@ import * as actions from './actions.js'
 Vue.use(Vuex)
 
 const state = {
-  loginUser: { // TODO: 나중에 제거
-    userLevel: 'member',
-    isLogined: false, // kakao login state
-    isFullAuth: false, // ourlunch login state
-    nickname: '김응철', // kakao login nickname
-    name: '김응철', // ourlunch login name
-    appetite: '까칠입맛',
-    profile_image: 'http://cfs7.blog.daum.net/image/6/blog/2007/10/26/11/58/472157ea06edf&filename=12%EA%B0%90%EC%9E%901.JPG',
-    thumbnail_image: 'http://cfs7.blog.daum.net/image/6/blog/2007/10/26/11/58/472157ea06edf&filename=12%EA%B0%90%EC%9E%901.JPG'
-  },
+  loginUser: {},
+  // loginUser: { // TODO: 나중에 제거
+  //   userLevel: 'member',
+  //   isLogined: false, // kakao login state
+  //   isFullAuth: false, // ourlunch login state
+  //   isJoinedFamily: true,
+  //   family: '샘플패밀리',
+  //   nickname: '김응철', // kakao login nickname
+  //   name: '김응철', // ourlunch login name
+  //   appetite: '까칠입맛',
+  //   profile_image: 'http://cfs7.blog.daum.net/image/6/blog/2007/10/26/11/58/472157ea06edf&filename=12%EA%B0%90%EC%9E%901.JPG',
+  //   thumbnail_image: 'http://cfs7.blog.daum.net/image/6/blog/2007/10/26/11/58/472157ea06edf&filename=12%EA%B0%90%EC%9E%901.JPG'
+  // },
   family: {
     isJoined: true,
     inviteLink: 'join/컴퍼니',

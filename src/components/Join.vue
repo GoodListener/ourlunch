@@ -14,7 +14,7 @@
 import Title from '@/components/ui/Title'
 import SubTitle from '@/components/ui/SubTitle'
 import kakaoAuth from '@/utils/kakaoAuth'
-import { getFamily } from '@/api/index.js'
+import { getFamily, getMyProfile } from '@/api/index.js'
 
 export default {
   name: 'Join',
@@ -22,24 +22,21 @@ export default {
     Title, SubTitle
   },
   mounted: function () {
-    this.checkExistFamily()
     this.goNextStep()
     this.$nextTick(function () {
       kakaoAuth('kakaoLoginButton', this.success, this.failure)
     })
   },
   methods: {
-    checkExistFamily: function () {
-      getFamily(this.$route.params.familyName)
-        .then((data) => {
-          console.log(data)
-        })
-    },
     checkStatus: function (data) {
       if (data.status && data.status === 'connected') {
-        data.user.properties.isLogined = true
-        this.$store.commit('loginUser', data.user.properties)
-        this.goNextStep()
+        getMyProfile().then(response => { // TODO : API로 실제 로그인 정보 가져오기
+          const userData = response.data
+          userData.profile_image = data.user.properties.profile_image
+          userData.thumbnail_image = data.user.properties.thumbnail_image
+          this.$store.commit('loginUser', userData)
+          this.goNextStep()
+        })
       }
     },
     success: function (data) {
@@ -50,7 +47,14 @@ export default {
     },
     goNextStep: function () {
       if (this.$store.state.loginUser.isLogined) {
-        this.$router.push('../joinFam/' + this.$route.params.familyName)
+        if (this.$store.state.loginUser.isJoinedFamily) {
+          getFamily(this.$store.state.loginUser.familyName).then((response) => {
+            this.$store.commit('joinFamily', response.data)
+            this.$router.push('../main')
+          })
+        } else {
+          this.$router.push('../joinFam/' + this.$route.params.familyName)
+        }
       }
     }
   }

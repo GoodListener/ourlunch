@@ -7,7 +7,7 @@ import VeeValidate from 'vee-validate'
 import validateConfig from './veevalidate/config'
 import VModal from 'vue-js-modal'
 import { store } from './store/index.js'
-import MockContainer from '@/mock/mockContainer'
+import MockContainer from '@/apiMock/mockContainer'
 
 Vue.config.productionTip = false
 Vue.use(VeeValidate, validateConfig)

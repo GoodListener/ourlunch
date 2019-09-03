@@ -40,7 +40,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famMember from '@/data/famMember'
+import famMember from '@/apiFakeData/famMember'
 
 export default {
   props: ['title'],

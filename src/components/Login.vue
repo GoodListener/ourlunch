@@ -18,6 +18,7 @@
 import Title from '@/components/ui/Title'
 import SubTitle from '@/components/ui/SubTitle'
 import kakaoAuth from '@/utils/kakaoAuth'
+import { getFamily, getMyProfile } from '@/api/index.js'
 
 export default {
   name: 'Login',
@@ -33,9 +34,13 @@ export default {
   methods: {
     checkStatus: function (data) {
       if (data.status && data.status === 'connected') {
-        data.user.properties.isLogined = true
-        this.$store.commit('loginUser', data.user.properties)
-        this.goNextStep()
+        getMyProfile().then(response => {
+          const userData = response.data
+          userData.profile_image = data.user.properties.profile_image
+          userData.thumbnail_image = data.user.properties.thumbnail_image
+          this.$store.commit('loginUser', userData)
+          this.goNextStep()
+        })
       }
     },
     success: function (data) {
@@ -46,7 +51,14 @@ export default {
     },
     goNextStep: function () {
       if (this.$store.state.loginUser.isLogined) {
-        this.$router.push('./')
+        if (this.$store.state.loginUser.isJoinedFamily) {
+          getFamily(this.$store.state.loginUser.familyName).then((response) => {
+            this.$store.commit('joinFamily', response.data)
+            this.$router.push('../main')
+          })
+        } else {
+          this.$router.push('./')
+        }
       }
     }
   }

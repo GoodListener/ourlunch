@@ -1,10 +1,10 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import searchRestaurantList from '@/data/fakeSearchRestaurantsApiData.json'
-import restaurantList from '@/data/fakeRestaurantApiData.json'
-import memberList from '@/data/fakeMemberApiData.json'
-import myLoginData from '@/data/fakeMyLoginInfoApiData.json'
-import myFamilyData from '@/data/fakeMyFamilyApiData.json'
+import searchRestaurantList from '@/apiFakeData/fakeSearchRestaurantsApiData.json'
+import restaurantList from '@/apiFakeData/fakeRestaurantApiData.json'
+import memberList from '@/apiFakeData/fakeMemberApiData.json'
+import myLoginData from '@/apiFakeData/fakeMyLoginInfoApiData.json'
+import myFamilyData from '@/apiFakeData/fakeMyFamilyApiData.json'
 
 export default class MockContainer {
   constructor () {
