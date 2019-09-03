@@ -46,10 +46,14 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famRestaurants from '@/apiFakeData/famRestaurants'
+import { getFamilyRestaurant } from '@/api/index'
 import evaluateRestaurantModal from './modals/evaluateRestaurant'
 
 export default {
+  name: 'FamRestaurants',
+  components: {
+    Button, TextButton, Title, SubTitle, Input, Page, PageContent
+  },
   props: ['title'],
   methods: {
     handleMainButton: function () {
@@ -69,15 +73,13 @@ export default {
     }
   },
   data: () => ({
-    famRestaurants: famRestaurants.Restaurants.famRestaurants1,
+    famRestaurants: [],
     showGradeModal: false
   }),
-  mounted: () => {
-    console.log(famRestaurants.Restaurants.famRestaurants1)
-  },
-  name: 'FamRestaurants',
-  components: {
-    Button, TextButton, Title, SubTitle, Input, Page, PageContent
+  mounted: function () {
+    getFamilyRestaurant().then(response => {
+      this.famRestaurants = response.data
+    })
   }
 }
 </script>

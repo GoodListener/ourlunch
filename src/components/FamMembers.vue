@@ -40,7 +40,7 @@ import SubTitle from '@/components/ui/SubTitle'
 import Input from '@/components/ui/Input'
 import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
-import famMember from '@/apiFakeData/famMember'
+import { getMembers } from '@/api/index'
 
 export default {
   props: ['title'],
@@ -50,10 +50,12 @@ export default {
     }
   },
   data: () => ({
-    famMembers: famMember.member.famMembersdata
+    famMembers: []
   }),
-  mounted: () => {
-    console.log(famMember)
+  mounted: function () {
+    getMembers().then(response => {
+      this.famMembers = response.data
+    })
   },
   name: 'FamMembers',
   components: {

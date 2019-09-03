@@ -1,0 +1,45 @@
+[
+  {
+    "RestaurantsName": "카레마치",
+    "type": "카레",
+    "grade": 7
+  },
+  {
+    "RestaurantsName": "임고집한우",
+    "type": "국밥집",
+    "grade": 5
+  },
+  {
+    "RestaurantsName": "흑돈가",
+    "type": "고깃집",
+    "grade": 9
+  },
+  {
+    "RestaurantsName": "크라이치즈버거",
+    "type": "패스트푸드",
+    "grade": 9
+  },
+  {
+    "RestaurantsName": "크레이지떡볶이",
+    "type": "떡볶이"
+  },
+  {
+    "RestaurantsName": "잇쇼우",
+    "type": "돈까스"
+  },
+  {
+    "RestaurantsName": "레드바삭",
+    "type": "떡볶이",
+    "grade": 6
+  },
+  {
+    "RestaurantsName": "포스코 뒤에 지하 돈까쓰",
+    "type": "돈까스",
+    "grade": 7
+  },
+  {
+    "RestaurantsName": "서브웨이",
+    "type": "패스트푸드",
+    "grade": 6
+  }
+]
