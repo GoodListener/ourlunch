@@ -24,7 +24,7 @@ export default {
   color: black;
 }
 .base_textbutton {
-  margin: 5px;
+  margin: 12px 0px 12px 0px;
   padding: 5px 15px;
   width: auto;
   height: 30px;
