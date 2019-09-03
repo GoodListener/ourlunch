@@ -23,7 +23,10 @@
         </small>
       </div>
       <div class="right">
-        <Button class="mini default">식당 평가</Button>
+        <!-- if문에 팸대장여부 체크 -->
+        <span v-if="Math.random() > 0.5"> </span>
+        <Button v-else class="mini default"
+        @click="evaluateRestaurant(famRestaurant.RestaurantsName)">식당 평가</Button>
         <Button class="mini default gray_btn">삭제</Button>
       </div>
     </li>
