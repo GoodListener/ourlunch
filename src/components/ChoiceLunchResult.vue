@@ -4,7 +4,7 @@
     <SubTitle class="title">오늘의 점심은?</SubTitle>
   </div>
   <div>
-    <Content class="result">결과</Content>
+    <Content class="result">결과 : {{ $route.params.result }}</Content>
   </div>
 
       <div class="buttons">
@@ -31,10 +31,10 @@ export default {
   }),
   methods: {
     nextPage: function () {
-      this.$router.push('')
+      console.log('가즈아')
     },
     prevPage: function () {
-      this.$router.push('ChoiceLunchResult')
+      this.$router.push('../ChoiceLunch1')
     }
   }
 }

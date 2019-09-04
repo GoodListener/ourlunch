@@ -87,7 +87,7 @@ export default new Router({
       component: ChoiceLunch2
     },
     {
-      path: '/choiceLunchResult',
+      path: '/choiceLunchResult/:result',
       name: 'ChoiceLunchResult',
       component: ChoiceLunchResult
     },

@@ -3,9 +3,11 @@
     <div>
       <SubTitle class="title">오늘의 식당 후보는?</SubTitle>
     </div>
-    <ul class="list">
-      <li class="item" v-for="(restaurant, index) in restaurantList" v-bind:key="index">
-        {{restaurant.name}}
+    <ul>
+      <li class="list"
+      v-for="(restaurant, index) in restaurantList"
+      :key="index">
+        <span>{{ restaurant.RestaurantsName }}</span>
       </li>
     </ul>
     <div class="buttons">
@@ -18,22 +20,31 @@
 <script>
 import Button from '@/components/ui/Button'
 import SubTitle from '@/components/ui/SubTitle'
+import { getFamilyRestaurant } from '@/api/index'
 
 export default {
   name: 'ChoiceLunch2',
   components: {
     SubTitle, Button
   },
+  mounted: function () {
+    getFamilyRestaurant().then(response => {
+      this.restaurantList = response.data
+    })
+  },
   data: () => ({
-    choicedRestaurant: '',
     restaurantList: []
   }),
   methods: {
     nextPage: function () {
-      this.$router.push('choiceLunchResult')
+      this.$router.push('choiceLunchResult/' + this.choiceLunch().RestaurantsName)
     },
     prevPage: function () {
       this.$router.push('choiceLunch1')
+    },
+    choiceLunch: function () {
+      const chooseIndex = parseInt(Math.random() * this.restaurantList.length)
+      return this.restaurantList[chooseIndex]
     }
   }
 }
@@ -59,4 +70,19 @@ button.base_button.primary {
   bottom: 50px;
 }
 
+ul{
+  padding: 0;
+}
+
+li.list{
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #DCDCDC;
+  background-color : #fdfdfd;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
 </style>
