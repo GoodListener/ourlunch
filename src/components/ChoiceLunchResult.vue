@@ -6,10 +6,14 @@
   <div>
     <Content class="result">결과 : {{ $route.params.result }}</Content>
   </div>
-
       <div class="buttons">
-          <Button class="default" @click="prevPage()">다시해!</Button>
+        <div>
+            <TextButton class="replay"><i class="fas fa-redo"></i>  다시해!</TextButton>
+        </div>
+        <div>
+          <Button class="default" @click="prevPage()">이전</Button>
           <Button class="primary" @click="nextPage()">가즈아</Button>
+        </div>
       </div>
   </div>
 </template>
@@ -34,7 +38,7 @@ export default {
       console.log('가즈아')
     },
     prevPage: function () {
-      this.$router.push('../ChoiceLunch1')
+      this.$router.push('../ChoiceLunch2')
     }
   }
 }
@@ -42,6 +46,9 @@ export default {
 
 <style scoped>
 
+TextButton.replay {
+  font-size: 20px
+}
 button.base_button.default {
   width: 20%;
 }
@@ -58,5 +65,12 @@ button.base_button.primary {
   width: 100%;
   position: fixed;
   bottom: 50px;
+}
+
+.result{
+  margin: 150px 0px 0px 0px;
+  font-size: 33px;
+  weight : bold;
+  font-family: 'BMDOHYEON';
 }
 </style>
