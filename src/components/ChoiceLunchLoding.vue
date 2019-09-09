@@ -1,18 +1,21 @@
 <template>
 <div>
     <div>
-      <SubTitle class="title"><marquee>Loading...</marquee></SubTitle>
+      <SubTitle class="title"><marquee>Loading...자동으로 넘어가게 해주세요</marquee></SubTitle>
     </div>
 
     <div class="buttons">
         <Button class="primary" @click="nextPage()">다음</Button>
     </div>
+
+
 </div>
 </template>
 
 <script>
 import Button from '@/components/ui/Button'
 import SubTitle from '@/components/ui/SubTitle'
+import { getFamilyRestaurant } from '@/api/index'
 
 export default {
   name: 'ChoiceLunchLoding',
@@ -34,9 +37,15 @@ export default {
     choiceLunch: function () {
       const chooseIndex = parseInt(Math.random() * this.restaurantList.length)
       return this.restaurantList[chooseIndex]
+    },
+    loadingTime: function() {
+      setTimeout(function () {
+        this.nextPage()
+      }, 1000);
     }
   }
 }
+
 </script>
 
 <style scoped>

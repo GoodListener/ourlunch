@@ -37,7 +37,7 @@ export default {
   }),
   methods: {
     nextPage: function () {
-      this.$router.push('ChoiceLunchLoding')
+      this.$router.push('choiceLunchResult/' + this.choiceLunch().RestaurantsName)
     },
     prevPage: function () {
       this.$router.push('choiceLunch1')
