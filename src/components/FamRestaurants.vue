@@ -29,7 +29,7 @@
                     index <= Math.ceil(famRestaurant.grade / 2) && famRestaurant.grade % 2 ? 'fas fa-star-half-alt star' : 'far fa-star emptyStar'"></i>
         </span>
         <Button v-else class="mini default" @click="evaluateRestaurant(famRestaurant.RestaurantsName)">식당 평가</Button>
-        <Button class="mini default gray_btn">삭제</Button>
+        <Button class="mini default gray_btn" @click="deleteRestaurant(famRestaurant.RestaurantsName)">삭제</Button>
       </div>
     </li>
   </ul>
@@ -48,6 +48,7 @@ import Page from '@/components/ui/Page'
 import PageContent from '@/components/ui/PageContent'
 import { getFamilyRestaurant } from '@/api/index'
 import evaluateRestaurantModal from './modals/evaluateRestaurant'
+import confirmDeleteModal from './modals/confirmDelete'
 
 export default {
   name: 'FamRestaurants',
@@ -67,10 +68,19 @@ export default {
         restaurantName: restaurantName
       }, {
         width: '330px',
-        height: '150px',
-        draggable: true
+        height: '160px',
+        draggable: false
       })
-    }
+    },
+    deleteRestaurant (restaurantName) {
+      this.$modal.show(confirmDeleteModal, {
+        restaurantName: restaurantName
+      }, {
+        width: '330px',
+        height: '160px',
+        draggable: false
+      })
+    },
   },
   data: () => ({
     famRestaurants: [],

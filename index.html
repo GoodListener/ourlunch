@@ -4,18 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--프론트는 커밋한 사람 파비콘 등록 가능-->
-    <link rel="shortcut icon" href="/static/eckim.ico" type="image/x-icon" />
+    <!-- <link rel="shortcut icon" href="/static/eckim.ico" type="image/x-icon" /> -->
     <!-- <link rel="shortcut icon" href="/static/hanpeace.ico" type="image/x-icon" /> -->
     <!-- <link rel="shortcut icon" href="/static/rushel.ico" type="image/x-icon" /> -->
 
     <!-- 백엔드는 하는거 봐서 등록 해줌(CEO 고유 권한) -->
-    <!-- <link rel="shortcut icon" href="/static/eyenoon.ico" type="image/x-icon" /> -->
+    <link rel="shortcut icon" href="/static/eyenoon.ico" type="image/x-icon" />
     <!-- <link rel="shortcut icon" href="/static/o29o29.ico" type="image/x-icon" /> -->
-    <title>ourlunch</title>
+    <title>점심고민 끝! 우리의점심</title>
     <script src="https://kit.fontawesome.com/5875aa3e12.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAMJKIkbK6cWA18BtsHrsoSf5eP_FAudXE",
+    authDomain: "our-woojeom.firebaseapp.com",
+    databaseURL: "https://our-woojeom.firebaseio.com",
+    projectId: "our-woojeom",
+    storageBucket: "",
+    messagingSenderId: "802878782385",
+    appId: "1:802878782385:web:fade7769d77a2b9da95b90"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+
 </html>

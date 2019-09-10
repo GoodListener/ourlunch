@@ -1,6 +1,14 @@
 <template>
   <div>
-    <Title>식당 등록하기</Title>
+    <div class="famMember_wrapper">
+    <div class="topFixArea">
+      <div class="backButton" @click="prevPage()">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="headerText">식당 등록하기
+      </div>
+    </div>
+  </div>
     <Page :page="content">
       <PageContent content-no="searchRestaurant">
         <div class="search_bar">
@@ -41,7 +49,7 @@
       </PageContent>
     </Page>
     <div class="buttons">
-      <Button v-if="page >= 0" class="default" @click="prevPage()">이전</Button>
+      <!-- <Button v-if="page >= 0" class="default" @click="prevPage()">이전</Button> -->
       <Button v-if="page != 0 && page < (contentArray.length - 1)" class="primary" @click="nextPage()">다음</Button>
       <Button v-if="content == 'pickRestaurant' && !!place.id" class="primary" @click="submit()">식당 등록</Button>
     </div>
@@ -124,6 +132,18 @@ export default {
 </script>
 
 <style scoped>
+.topFixArea{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width:100%;
+  background-color: white;
+  border-bottom: 1px solid #e6e6e6;
+}
+.famMember_wrapper{
+  float: left;
+  margin: 0px 20px;
+}
 li.list{
   list-style: none;
   margin-bottom: 5px;
@@ -137,5 +157,20 @@ li.list{
 .pick_restaurant_area
 {
   height: 300px;
+}
+.backButton{
+  float: left;
+  padding: 18px 15px 18px 15px;
+  text-align: center;
+}
+.copy_btn{
+  float: right;
+  width: auto;
+}
+.headerText{
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 15px 15px 0px;
 }
 </style>

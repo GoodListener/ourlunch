@@ -10,6 +10,7 @@ import StartComplete from '../components/StartComplete'
 import Main from '../components/Main'
 import ChoiceLunch1 from '../components/ChoiceLunch1'
 import ChoiceLunch2 from '../components/ChoiceLunch2'
+import ChoiceLunchLoding from '../components/ChoiceLunchLoding'
 import ChoiceLunchResult from '../components/ChoiceLunchResult'
 import Restaurant from '../components/Restaurant'
 import FamMembers from '../components/FamMembers'
@@ -86,6 +87,11 @@ export default new Router({
       path: '/choiceLunch2',
       name: 'ChoiceLunch2',
       component: ChoiceLunch2
+    },
+    {
+      path: '/choiceLunchLoding',
+      name: 'ChoiceLunchLoding',
+      component: ChoiceLunchLoding
     },
     {
       path: '/choiceLunchResult/:result',
