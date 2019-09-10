@@ -13,12 +13,13 @@
 </template>
 
 <script>
+
 import Button from '@/components/ui/Button'
 import SubTitle from '@/components/ui/SubTitle'
 import { getFamilyRestaurant } from '@/api/index'
 
 export default {
-  name: 'ChoiceLunchLoding',
+  name: 'ChoiceLunchLoading',
   components: {
     SubTitle, Button
   },
@@ -32,17 +33,20 @@ export default {
   }),
   methods: {
     nextPage: function () {
-      this.$router.push('choiceLunchResult/' + this.choiceLunch().RestaurantsName)
+      setTimeout(() => {
+        this.$router.push('choiceLunchResult/' + this.choiceLunch().RestaurantsName)
+    }, 1000);
     },
     choiceLunch: function () {
       const chooseIndex = parseInt(Math.random() * this.restaurantList.length)
       return this.restaurantList[chooseIndex]
-    },
-    loadingTime: function() {
-      setTimeout(function () {
-        this.nextPage()
-      }, 1000);
     }
+    // ,
+    // loadingTime: function() {
+    //   setTimeout(function () {
+    //     this.nextPage()
+    //   }, 1000);
+    // }
   }
 }
 
