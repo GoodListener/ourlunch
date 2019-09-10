@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Title class="title">우리의점심</Title>
+    <Title class="title">우리의<span @click="lotto">점</span>심</Title>
     <div>
       <div>
         <img class="main_image" src=static/loginpage_img.png>
@@ -39,6 +39,9 @@ export default {
     },
     failure: function (result) {
       console.error(result)
+    },
+    lotto: function () {
+      this.$router.push('lotto')
     }
   }
 }

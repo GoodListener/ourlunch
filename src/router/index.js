@@ -14,6 +14,7 @@ import ChoiceLunchResult from '../components/ChoiceLunchResult'
 import Restaurant from '../components/Restaurant'
 import FamMembers from '../components/FamMembers'
 import FamRestaurants from '../components/FamRestaurants'
+import Lotto from '../components/Lotto'
 
 // peace study
 import Study from '../components/Study'
@@ -105,6 +106,11 @@ export default new Router({
       path: '/famRestaurants',
       name: 'FamRestaurants',
       component: FamRestaurants
+    },
+    {
+      path: '/lotto',
+      name: 'Lotto',
+      component: Lotto
     }
   ]
 })
