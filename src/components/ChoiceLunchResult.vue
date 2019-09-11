@@ -8,7 +8,7 @@
   </div>
       <div class="buttons">
         <div>
-            <TextButton class="replay"><i class="fas fa-redo"></i>  다시해!</TextButton>
+            <TextButton class="replay" @click="replay()"><i class="fas fa-redo"></i> 다시해!</TextButton>
         </div>
         <div>
           <Button class="default" @click="prevPage()">이전</Button>
@@ -39,6 +39,9 @@ export default {
     },
     prevPage: function () {
       this.$router.push('../ChoiceLunch2')
+    },
+    replay: function () {
+      this.$router.push('../choiceLunchLoading')
     }
   }
 }

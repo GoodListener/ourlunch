@@ -80,7 +80,7 @@ export default {
         height: '160px',
         draggable: false
       })
-    },
+    }
   },
   data: () => ({
     famRestaurants: [],
